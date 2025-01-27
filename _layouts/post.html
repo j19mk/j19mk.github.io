@@ -16,9 +16,8 @@ layout: default
     </ul>
     {%- endif -%}
   </div>
-    {% for category in page.categories % }
-      <a href="{{ site.url }}/category/{{ category }}.html" >{{ category }}</a>
-    {% endfor %}
+  <div class="post">
+    {{ content }}
   </div>
   {%- if site.plainwhite.disqus_shortname -%}
   <div id="disqus_thread" style="margin-top:25px"></div>
