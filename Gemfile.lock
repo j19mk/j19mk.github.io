@@ -80,6 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (> 1.16)
+  jekyll (~> 4.2)
   plainwhite!
   rake (~> 12.0)
 
