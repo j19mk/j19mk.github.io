@@ -334,11 +334,12 @@ footer {
     border-top: 1px solid #eee;
   }
 }
+$default: #333333;
 .toc {
   position: absolute;
   right: 0px;
   width: 240px;
-  color: $default: #333333;
+  color: $default;
   overflow-y: auto;
   overflow-x: hidden;
   padding-left: 0.75rem;
