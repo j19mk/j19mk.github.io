@@ -26,8 +26,8 @@ plainwhite:
     - post
   # generate social links in footer
   social_links:
-    github:  https://github.com/j19mk
-    linkedIn: https://www.linkedin.com/in/minkyung-park-94a92291/
+    github:  github.com/j19mk
+    linkedIn: www.linkedin.com/in/minkyung-park-94a92291/
     #dribbble: jekyll
     #flickr:   jekyll
     #instagram: jekyll
