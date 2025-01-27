@@ -17,6 +17,7 @@ layout: default
     {%- endif -%}
   </div>
   <div class="post">
+    {% include toc.html html=content %}
     {{ content }}
   </div>
   {%- if site.plainwhite.disqus_shortname -%}
