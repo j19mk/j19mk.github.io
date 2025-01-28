@@ -58,3 +58,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
 #  - jekyll-feed
+
+sidebar:
+  enabled: true
+  position: left
+
+plainwhite:
+  search: true
+  dark_mode: true

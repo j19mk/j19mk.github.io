@@ -1,13 +1,27 @@
----
----
+// _sass/plain.scss
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
 
-@import "plain";
+// _sass/search.scss
+.search-bar {
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
 
-{% if site.plainwhite.search %}
-  @import "search";
-{% endif %}
+// _sass/toggle.scss
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-{%- if site.plainwhite.dark_mode -%}
-  @import "toggle";
-  @import "dark";
-{%- endif -%}
+// _sass/dark.scss
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
