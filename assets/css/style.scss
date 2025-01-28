@@ -1,8 +1,7 @@
 ---
----
 
 @import "plain";
-@import "sidebar";;
+@import "sidebar";
 
 {% if site.plainwhite.search %}
   @import "search";
