@@ -2,7 +2,6 @@
 ---
 
 @import "plain";
-@import "sidebar";;
 
 {% if site.plainwhite.search %}
   @import "search";
