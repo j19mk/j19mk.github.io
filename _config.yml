@@ -56,4 +56,5 @@ theme: minima
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-toc
 #  - jekyll-feed
