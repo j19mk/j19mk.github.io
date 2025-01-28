@@ -1,13 +1,25 @@
 
 
 .sidebar {
-  width: 250px;
+  width: 400px;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: #cce6f2;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 20px;
+}
+
+.sidebar-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h3 {

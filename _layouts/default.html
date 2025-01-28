@@ -163,6 +163,16 @@
       {{ footer }}
     </section>
     <aside class="sidebar {{condensed_class}}">
+       <div class="sidebar-image">
+        <img src="{{ site.baseurl }}/assets/images/sidebar-image.jpg" alt="Sidebar Image">
+       </div>
+       <h3>카테고리</h3>
+       <ul>
+         <li><a href="#">카테고리 1</a></li>
+         <li><a href="#">카테고리 2</a></li>
+         <li><a href="#">카테고리 3</a></li>
+       </ul>
+     </div>
       <h3>Categories</h3>
       <ul>
         {% for category in site.categories %}
