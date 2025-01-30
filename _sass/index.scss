@@ -25,3 +25,163 @@
 .category-list a:hover {
   color: #007bff; /* hover 시 색상 */
 }
+$mobileW: 768px;
+$smallMobileW: 480px;
+$bigScreenW: 1600px;
+$linkColor: #0a59b0;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 1.2em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
+
+a {
+  color: #000;
+  transition: color 0.3s;
+  &:hover {
+    color: $linkColor;
+  }
+}
+
+h2 {
+  margin: 0.7em 0;
+  @media screen and (max-width: $mobileW) {
+    margin: 0.3em 0;
+  }
+}
+
+main {
+  margin: 0 90px;
+  display: flex;
+  height: 100%;
+
+  @media screen and (min-width: $bigScreenW) {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    margin: 0 75px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin: 0 35px;
+  }
+
+  @media screen and (max-width: $mobileW) {
+    margin: 0 10px;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: $smallMobileW) {
+    margin: 0;
+  }
+
+  .content {
+    width: 100%; /* 사이드바 제거 후 전체 너비 사용 */
+  }
+
+  .about {
+    display: flex;
+    height: auto;
+    padding: 5vh 30px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-size: 22px;
+      margin-top: 25px;
+      margin-bottom: 0;
+      color: #222222;
+      font-weight: normal;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 22px;
+      margin-top: 0px;
+      color: #aaa;
+      white-space: pre-wrap;
+      line-height: normal;
+    }
+
+    img {
+      max-width: 150px;
+    }
+
+    img.dark {
+      display: none;
+    }
+  }
+}
+
+.social {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  a {
+    margin-bottom: .5em;
+  }
+
+  li {
+    i {
+      font-size: 34px;
+    }
+  }
+}
+
+.navigation {
+  width: 100%; /* 사이드바 없이 전체 너비 사용 */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+
+    li:last-child {
+      a {
+        border-bottom: 0;
+      }
+    }
+
+    a {
+      display: block;
+      font-family: 'Merriweather';
+      text-align: center;
+      padding: 1rem 0;
+      text-decoration: none;
+      border-bottom: 1px solid #ececec;
+
+      @media screen and (max-width: $mobileW) {
+        padding: 2rem 0;
+      }
+    }
+  }
+}
+
+footer {
+  display: block; /* footer 보이도록 설정 */
+  border-top: 1px solid #ececec;
+  text-align: center;
+  padding: 20px;
+}

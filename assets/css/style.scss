@@ -2,7 +2,7 @@
 ---
 
 @import "plain";
-@import "sidebar";
+@import "index";
 
 {% if site.plainwhite.search %}
   @import "search";
