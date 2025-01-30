@@ -162,18 +162,14 @@
       {% endcapture %}
       {{ footer }}
     </section>
-    <aside class="sidebar {{condensed_class}}">
-       <div class="sidebar-image">
-        <img src="{{ site.baseurl }}/assets/images/sidebar-image.jpg" alt="Sidebar Image">
-       </div>
-
-      <h3>Jane's Blog</h3>
-      <ul>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">CATEGORIES</a></li>
-          <li><a href="#">ABOUT</a></li>
+    <div class="header">
+      <ul class="category-list">
+        <li>카테고리 1</li>
+        <li>카테고리 2</li>
+        <li>카테고리 3</li>
+        <li>카테고리 4</li>
       </ul>
-    </aside>
+    </div>
     <section class="content">
       {{ content }}
     </section>
