@@ -59,9 +59,6 @@ plugins:
   - jekyll-toc
 #  - jekyll-feed
 
-sidebar:
-  enabled: true
-  position: left
 
 plainwhite:
   search: true
