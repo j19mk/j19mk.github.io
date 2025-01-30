@@ -14,6 +14,14 @@
 <body>
   <main class="container">
     <section class="about">
+        <div class="header">
+          <ul class="category-list">
+            <li>Home</li>
+            <li>Blog</li>
+            <li>Categories</li>
+            <li>About</li>
+          </ul>
+        </div>
       <div class="about-header {{condensed_class}}">
       <div class="about-title">
       <a href="{{ "/" | relative_url}}">
@@ -189,12 +197,5 @@
   <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
   {% endif %}
 </body>
-<div class="header">
-  <ul class="category-list">
-    <li>Home</li>
-    <li>Blog</li>
-    <li>Categories</li>
-    <li>About</li>
-  </ul>
-</div>
+
 </html>
