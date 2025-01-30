@@ -172,12 +172,12 @@ main {
       text-decoration: none;
       border-bottom: 1px solid #ececec;
 
-      @media screen and (max-width: $mobileW) {
-        padding: 2rem 0;
+      @media screen and (max-width: #{$mobileW}) { ... }
+
       }
     }
   }
-}
+
 
 footer {
   display: block; /* footer 보이도록 설정 */
