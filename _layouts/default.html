@@ -162,14 +162,7 @@
       {% endcapture %}
       {{ footer }}
     </section>
-    <div class="header">
-      <ul class="category-list">
-        <li>카테고리 1</li>
-        <li>카테고리 2</li>
-        <li>카테고리 3</li>
-        <li>카테고리 4</li>
-      </ul>
-    </div>
+
     <section class="content">
       {{ content }}
     </section>
@@ -196,5 +189,12 @@
   <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
   {% endif %}
 </body>
-
+<div class="header">
+  <ul class="category-list">
+    <li>Home</li>
+    <li>Blog</li>
+    <li>Categories</li>
+    <li>About</li>
+  </ul>
+</div>
 </html>
