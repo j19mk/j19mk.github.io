@@ -165,11 +165,11 @@ footer {
 
 .category-list {
   list-style-type: none;
-  margin: 0;
+  margin: 10px;
   padding: 0;
   display: flex;
-  justify-content: left;  /* 가로 중앙 정렬 */
-  align-items: left;  /* 세로 중앙 정렬 */
+  justify-content: center; 
+  align-items: center; 
 }
 
 
@@ -178,13 +178,13 @@ footer {
 }
 
 .category-list a {
-  text-decoration: none; /* 밑줄 제거 */
-  color: #333; /* 기본 텍스트 색상 */
+  text-decoration: none; 
+  color: #333; 
   font-weight: bold;
-  padding: 5px 10px; /* 클릭 범위 넓히기 위한 패딩 */
-  display: block; /* 블록 레벨 요소로 설정하여 클릭 영역 확장 */
+  padding: 5px 10px; 
+  display: block;
 }
 
 .category-list a:hover {
-  color: #007bff; /* hover 시 색상 */
+  color: #007bff;
 }
