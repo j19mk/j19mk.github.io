@@ -79,7 +79,7 @@ main {
     display: flex;
     height: auto;
     padding: 5vh 30px;
-    justify-content: center;
+    justify-content: left;
     flex-direction: column;
     align-items: left;
 
@@ -129,7 +129,7 @@ main {
 }
 
 .navigation {
-  width: 100%; /* 사이드바 없이 전체 너비 사용 */
+  width: 100%; 
   ul {
     list-style-type: none;
     padding: 0;
@@ -157,7 +157,7 @@ main {
 }
 
 footer {
-  display: block; /* footer 보이도록 설정 */
+  display: block; 
   border-top: 1px solid #ececec;
   text-align: center;
   padding: 20px;
@@ -168,25 +168,25 @@ footer {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: left;  /* 가로 중앙 정렬 */
-  align-items: left;  /* 세로 중앙 정렬 */
-  margin-top: 10px; /* 필요시 추가 */
+  justify-content: left; 
+  align-items: left; 
+  margin-top: 20px; 
 }
 
 
 
 .category-list li {
-  margin: 0 15px; /* 항목 간 간격 */
+  margin: 0 15px; 
 }
 
 .category-list a {
-  text-decoration: none; /* 밑줄 제거 */
-  color: #333; /* 기본 텍스트 색상 */
+  text-decoration: none; 
+  color: #333; 
   font-weight: bold;
-  padding: 5px 10px; /* 클릭 범위 넓히기 위한 패딩 */
-  display: block; /* 블록 레벨 요소로 설정하여 클릭 영역 확장 */
+  padding: 5px 10px; 
+  display: block; 
 }
 
 .category-list a:hover {
-  color: #007bff; /* hover 시 색상 */
+  color: #007bff;
 }
