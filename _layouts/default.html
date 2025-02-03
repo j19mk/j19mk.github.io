@@ -3,6 +3,75 @@
 
 <head>
   {%- include head.html -%}
+  <style>
+    /* 기본 밝은 모드 스타일 */
+    body {
+      background-color: white;
+      color: black;
+      transition: all 0.3s ease;
+    }
+
+    /* 다크 모드 스타일 */
+    body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .dark-mode-toggle {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 60px;  /* 다크 모드 버튼을 살짝 왼쪽으로 이동 */
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .search-toggle {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px; /* 검색 버튼은 다크 모드 버튼보다 오른쪽에 위치 */
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+
+    .search-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* content 부분을 grid로 설정 */
+    .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 자동으로 크기를 맞추고, 최소 너비 300px */
+      gap: 20px;  /* 그리드 아이템 사이의 간격 */
+      padding: 20px;
+    }
+
+    /* 각 콘텐츠 요소에 스타일 추가 */
+    .content > * {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .content > *:hover {
+      background-color: #eaeaea;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+  </style>
 </head>
 
 {%- if site.plainwhite.condensed_mobile contains page.layout -%}
@@ -15,10 +84,14 @@
   <main class="container">
     <!-- 상단 메뉴 (카테고리 항목) -->
     <header class="header">
-          <div class="site-name">
-            <h1>Jane</h1>
-          </div>
-
+      <div class="site-name">
+        <h1>Jane</h1>
+      </div>
+      
+      <div class="site-subname">
+        <h2>Student majoring Genetic/Medical informatics and Statistic<h2>
+      </div>
+      
       <ul class="category-list">
         <li><a href="{{ "/" | relative_url }}">Home</a></li>
         <li><a href="{{ "/blog" | relative_url }}">Blog</a></li>
@@ -26,9 +99,17 @@
         <li><a href="{{ "/about" | relative_url }}">About</a></li>
       </ul>
     </header>
+
+    <!-- 검색 버튼 (다크 모드 버튼보다 앞에 배치) -->
+    <button id="search-toggle" class="search-toggle">
+      🔍
+    </button>
+
+    <!-- 다크 모드 토글 버튼 -->
     <button id="dark-mode-toggle" class="dark-mode-toggle">
       🌙
     </button>
+
     <section class="about">
       <div class="about-header {{condensed_class}}">
         <div class="about-title">
@@ -48,12 +129,24 @@
         <p class="tagline">{{ site.plainwhite.tagline }}</p>
         {%- endif -%}
       </div>
-      
-      <!-- 콘텐츠 부분 -->
+
+      <!-- 콘텐츠 부분을 grid로 설정 -->
       <section class="content">
-        {{ content }}
+        <div class="posts-wrapper">
+          {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+          {% for post in sorted_posts %}
+            <div class="post-wrapper">
+              <div class="post-grid">
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.excerpt }}</p>
+                <p><small>Posted on {{ post.date | date: "%B %d, %Y" }}</small></p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
       </section>
-    </section>
+
+
 
     <footer class="{{condensed_class}}">
       {{ footer }}
@@ -64,7 +157,7 @@
     <script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
   {% endif %}
 
-  {%- if site.plainwhite.analytics_id -%}
+  {% if site.plainwhite.analytics_id -%}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.plainwhite.analytics_id }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -72,12 +165,41 @@
       gtag('js', new Date());
       gtag('config', '{{ site.plainwhite.analytics_id }}');
     </script>
-  {%- endif -%}
+  {% endif -%}
 
   {% if site.plainwhite.search %}
     <script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
   {% endif %}
+
+  <!-- 다크 모드 토글을 위한 JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkModeToggle = document.getElementById('dark-mode-toggle');
+      const body = document.body;
+
+      // localStorage에서 저장된 다크 모드 상태 확인
+      if (localStorage.getItem('dark-mode') === 'enabled') {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = '🌕';  // 변경된 아이콘
+      } else {
+        darkModeToggle.textContent = '🌙';  // 기본 아이콘
+      }
+
+      // 버튼 클릭 시 다크 모드 토글
+      darkModeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        // 다크 모드 상태를 localStorage에 저장
+        if (body.classList.contains('dark-mode')) {
+          localStorage.setItem('dark-mode', 'enabled');
+          darkModeToggle.textContent = '🌕';  // 변경된 아이콘
+        } else {
+          localStorage.setItem('dark-mode', 'disabled');
+          darkModeToggle.textContent = '🌙';  // 기본 아이콘
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
