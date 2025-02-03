@@ -7,18 +7,25 @@ main {
 }
 
 .posts-labelgroup {
-  /* Firefox Flex Hack */
-  @-moz-document url-prefix() { 
-    align-items: center;
-  }
+  position: relative; /* 부모 요소에 상대적인 위치 설정 */
 
   .search-section {
+    position: fixed; /* 화면에 고정 */
+    top: 10px; /* 상단에서 10px 만큼 떨어진 위치 */
+    right: 10px; /* 오른쪽에서 10px 만큼 떨어진 위치 */
     display: flex;
-    flex-grow: 1;
+    align-items: center;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    align-items: center;
     border-radius: 5px;
+    padding: 10px;
+    background-color: white; /* 배경색을 설정하여 다른 내용 위에 겹치지 않도록 할 수 있습니다 */
+    z-index: 9999; /* 다른 요소들보다 우선적으로 표시되도록 설정 */
+    transition: box-shadow 0.3s ease-in-out; /* 스무스한 애니메이션 효과 추가 */
+  }
+
+  .search-section:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* hover시 그림자 효과 */
   }
 
   i {
@@ -99,13 +106,6 @@ main {
     position: relative;
   }
 
-  &:hover {
-
-    i {
-      color: $linkColor;
-    }
-  }
-
   &.focus-within {
 
     .search-section {
@@ -126,5 +126,10 @@ main {
       color: $linkColor;
       padding: 0 14px;
     }
+  }
+
+  /* Search icon hover color change */
+  .search-section:hover i {
+    color: $linkColor;  // hover시 아이콘 색상 변경
   }
 }

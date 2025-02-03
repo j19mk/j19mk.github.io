@@ -1,12 +1,16 @@
 // index.scss
 
+@import "ext/fonts";
+@import "ext/normalize";
+@import "syntax";
+@import "dark";  // 다크 모드 관련 스타일 파일
+
 /* 변수들 */
 $mobileW: 768px;
 $smallMobileW: 480px;
 $bigScreenW: 1600px;
 $linkColor: #0a59b0;
 
-/* 기본적인 스타일 */
 *,
 *:before,
 *:after {
@@ -20,6 +24,83 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease; /* 다크 모드 전환 시 애니메이션 추가 */
+}
+
+/* 다크 모드 스타일 */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+a.dark {
+  color: #bb86fc; /* 다크 모드에서 링크 색상 */
+}
+
+header.dark {
+  background-color: #333; /* 헤더 배경 */
+}
+
+.category-list a.dark {
+  color: #bb86fc; /* 다크 모드에서 링크 색상 */
+}
+
+.site-name h1 {
+  color: #333;
+}
+
+/* header 스타일 */
+header {
+  position: relative;
+  padding: 20px;
+  background-color: none;
+  height: 90px;
+}
+
+/* 사이트 이름 스타일 */
+.site-name {
+  position: fixed;
+  top: 7%;
+  left: 80px;
+  transform: translateY(-50%);
+}
+
+.site-name h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 카테고리 리스트 스타일 */
+.category-list {
+  list-style-type: none;
+  margin: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-list li {
+  margin: 0 15px;
+}
+
+.category-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.category-list a:hover {
+  color: #007bff;
+}
+
+.category-list a.dark {
+  color: #bb86fc; /* 다크 모드에서 카테고리 링크 색상 */
 }
 
 img,
@@ -46,7 +127,7 @@ h2 {
 
 main {
   margin: 0 90px;
-  display: flex;
+  display: grid;
   height: 100%;
 
   @media screen and (min-width: $bigScreenW) {
@@ -72,11 +153,11 @@ main {
   }
 
   .content {
-    width: 100%; 
+    width: 100%;
   }
 
   .about {
-    display: flex;
+    display: grid;
     height: auto;
     padding: 5vh 30px;
     justify-content: left;
@@ -86,105 +167,9 @@ main {
     h2 {
       font-size: 22px;
       margin-top: 25px;
-      margin-bottom: 0;
+      margin-bottom: 0;  // margin-bottom 값 추가
       color: #222222;
       font-weight: normal;
     }
-
-    .tagline {
-      text-align: center;
-      font-size: 22px;
-      margin-top: 0px;
-      color: #aaa;
-      white-space: pre-wrap;
-      line-height: normal;
-    }
-
-    img {
-      max-width: 150px;
-    }
-
-    img.dark {
-      display: none;
-    }
   }
-}
-
-.social {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-
-  a {
-    margin-bottom: .5em;
-  }
-
-  li {
-    i {
-      font-size: 34px;
-    }
-  }
-}
-
-.navigation {
-  width: 100%; 
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 0;
-
-    li:last-child {
-      a {
-        border-bottom: 0;
-      }
-    }
-
-    a {
-      display: block;
-      font-family: 'Merriweather';
-      text-align: center;
-      padding: 1rem 0;
-      text-decoration: none;
-      border-bottom: 1px solid #ececec;
-
-      @media screen and (max-width: $mobileW) {
-        padding: 2rem 0;
-      }
-    }
-  }
-}
-
-footer {
-  display: block; /* footer 보이도록 설정 */
-  border-top: 1px solid #ececec;
-  text-align: center;
-  padding: 20px;
-}
-
-.category-list {
-  list-style-type: none;
-  margin: 20px;
-  padding: 0;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-}
-
-
-.category-list li {
-  margin: 0 15px; /* 항목 간 간격 */
-}
-
-.category-list a {
-  text-decoration: none; 
-  color: #333; 
-  font-weight: bold;
-  padding: 5px 10px; 
-  display: block;
-}
-
-.category-list a:hover {
-  color: #007bff;
 }

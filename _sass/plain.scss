@@ -46,7 +46,7 @@ h2 {
 
 main {
   margin: 0 90px;
-  display: flex;
+  display: grid;
   height: 100%;
 
   @media screen and (min-width: $bigScreenW) {
@@ -76,7 +76,7 @@ main {
   }
 
   .about {
-    display: flex;
+    display: grid;
     height: auto;
     padding: 5vh 30px;
     justify-content: left;
@@ -163,30 +163,3 @@ footer {
   padding: 20px;
 }
 
-.category-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: left; 
-  align-items: left; 
-  margin-top: 20px; 
-}
-
-
-
-.category-list li {
-  margin: 0 15px; 
-}
-
-.category-list a {
-  text-decoration: none; 
-  color: #333; 
-  font-weight: bold;
-  padding: 5px 10px; 
-  display: block; 
-}
-
-.category-list a:hover {
-  color: #007bff;
-}
