@@ -1,0 +1,31 @@
+---
+layout: default
+title: "Categories"
+---
+
+<h1>Categories</h1>
+
+<div class="categories-list">
+  <ul>
+    {% assign sorted_categories = site.categories | sort %}
+    {% for category in sorted_categories %}
+      <li><a href="#{{ category[0] }}">{{ category[0] }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% for category in site.categories %}
+  <div class="category-section" id="{{ category[0] }}">
+    <h2>{{ category[0] }}</h2>
+    <ul class="category-posts">
+      {% for post in category[1] %}
+        <li>
+          <a href="{{ post.url | relative_url }}">
+            <h3>{{ post.title }}</h3>
+            <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}

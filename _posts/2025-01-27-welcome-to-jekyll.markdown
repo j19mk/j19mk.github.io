@@ -4,11 +4,10 @@ title:  "Welcome to Jekyll!"
 date:   2025-01-27 17:17:03 +1100
 
 categories: paper
-tag: jekyll
+tags: jekyll
 
 toc: true
 toc_sticky: true
-
 ---
 
 * TOC
