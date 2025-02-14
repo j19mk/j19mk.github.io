@@ -1,0 +1,172 @@
+/* 전체 요소의 box-sizing 설정 */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* 기본 body 스타일 */
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.2em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease; /* 다크 모드 전환 시 애니메이션 */
+}
+
+/* 다크 모드 스타일 */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* 다크 모드 링크 색상 */
+a.dark-mode {
+  color: #bb86fc; /* 다크 모드에서 링크 색상 */
+}
+
+/* header 스타일 */
+header {
+  position: absolute;  /* 절대 위치로 이동 */
+  top: 50px;           /* 상단에서 20px 위치 */
+  left: 50px;          /* 왼쪽에서 20px 위치 */
+  padding: 0;          /* 패딩 제거 */
+  background-color: none;
+  height: 90px;
+  text-align: left;
+  font-size: 30px;      /* 헤더 텍스트 크기 설정 */
+  font-weight: bold;    /* 텍스트 볼드 */
+  color: #000;          /* 텍스트 색상 설정 */
+  z-index: 1000;        /* 다른 요소들보다 우선 표시 */
+}
+
+header a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit;        /* 부모 요소(header)의 색상을 상속받음 */
+}
+
+/* 컨텐츠 영역 스타일 */
+.container {
+  position: relative;  /* 상대 위치로 설정 */
+  top: 20px;           /* 상단에서 40px 위치 */
+  background-color: transparent;  /* 배경색 투명 */
+  text-align: center;
+  color: #000;          /* 텍스트 색상 설정 */
+  padding: 20px;
+}
+
+/* 'About Me' 텍스트 스타일 */
+.container h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 22px; 
+}
+
+.container p {
+  margin-top: 30px;  /* p 위에 10px 간격 추가 (선택사항) */
+  font-size: 15px;  
+}
+
+/* 연락처 정보 */
+.contact-info {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 50px;  /* p 위에 10px 간격 추가 (선택사항) */
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.contact-info a:hover {
+  color: #0056b3;
+}
+
+.contact-info i {
+  margin-right: 8px;
+}
+
+/* 다크 모드에서 연락처 정보 링크 색상 */
+body.dark-mode .contact-info a {
+  color: #bb86fc;
+}
+
+/* 다크 모드에서 연락처 정보 링크 hover 색상 */
+body.dark-mode .contact-info a:hover {
+  color: #bb86fc;
+}
+
+/* 다크 모드 버튼 스타일 */
+.dark-mode-toggle {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 60px;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* 검색 버튼 스타일 */
+.search-toggle {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+
+.search-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* 그리드 레이아웃 스타일 */
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 자동으로 크기를 맞추고, 최소 너비 300px */
+  gap: 20px;  /* 그리드 아이템 사이의 간격 */
+  padding: 20px;
+}
+
+/* 각 콘텐츠 요소 스타일 */
+.content > * {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.content > *:hover {
+  background-color: #eaeaea;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 푸터 스타일 */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* 다크 모드에서 푸터 스타일 */
+body.dark-mode footer {
+  color: #bbb;
+}

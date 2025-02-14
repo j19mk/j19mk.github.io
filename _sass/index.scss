@@ -7,7 +7,7 @@
 
 /* 기본 body 스타일 */
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: Verdana, sans-serif;
   font-size: 16px;
   line-height: 1.2em;
   margin: 0;
@@ -69,6 +69,18 @@ header {
   color: #756d6d;
 }
 
+/* 메인 영역 */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  margin: 0 auto;
+  height: 100vh; /* 화면 높이 */
+  overflow-y: auto; /* 세로 스크롤 가능 */
+  background-color: white; /* 메인 배경을 흰색으로 설정 */
+}
+
 /* 카테고리 리스트 스타일 */
 .category-list {
   list-style-type: none;
@@ -83,22 +95,71 @@ header {
   margin: 0 15px;
 }
 
+/* 카테고리 항목 스타일 */
 .category-list a {
   text-decoration: none;
   color: #000000;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 10px 20px;
   display: block;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
+/* 마우스 hover 시 네모틀 강조 */
 .category-list a:hover {
   color: #007bff;
+  border-color: #007bff; /* hover 시 테두리 색상 변경 */
 }
 
+/* 다크 모드에서 카테고리 링크 색상 */
 .category-list a.dark {
-  color: #bb86fc; /* 다크 모드에서 카테고리 링크 색상 */
+  color: #bb86fc;
+  border-color: #bb86fc; /* 다크 모드에서 링크 테두리 색상 */
 }
+
+/* 다크 모드 hover 스타일 */
+.category-list a.dark:hover {
+  color: #ffffff;
+  border-color: #bb86fc; /* 다크 모드에서 hover 시 테두리 색상 */
+}
+
+.category-section {
+  display: flex; /* 가로로 정렬 */
+  justify-content: space-between; /* 카드들 사이에 여백을 동일하게 배치 */
+  gap: 20px; /* 카드들 간의 간격 */
+  flex-wrap: wrap; /* 화면 크기에 따라 카드가 여러 줄로 내려갈 수 있도록 */
+}
+
+.category-card {
+  border: 1px solid #506d95; /* 네모 틀 */
+  padding: 20px; /* 카드 내부 여백 */
+  margin: 20px; /* 카드 간의 간격 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  transition: all 0.3s ease; /* 마우스 오버 시 애니메이션 */
+  margin-top: 20px;  /* p 위에 10px 간격 추가 (선택사항) */
+}
+
+.category-card h3 {
+  font-family: 'Verdana'; /* h3에 Arial 글씨체 적용 */
+  font-size: 24px; /* 글씨 크기 */
+  font-weight: bold; /* 글씨 굵게 */
+  color: #333; /* 글씨 색 */
+}
+
+
+.category-card p {
+  font-family: 'Verdana'; /* p에 Courier New 글씨체 적용 */
+  font-size: 16px; /* 글씨 크기 */
+  font-weight: normal; /* 기본 글씨 굵기 */
+  color: #666; /* 글씨 색 */
+}
+
+
+.category-card:hover {
+  background-color: #f0f0f0; /* 마우스 오버 시 배경색 변화 */
+  transform: scale(1.05); /* 마우스 오버 시 크기 확대 */
+}
+
 
 /* 이미지 크기 조정 */
 img,
@@ -125,65 +186,3 @@ h2 {
   }
 }
 
-/* 메인 영역 */
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-  margin: 0 auto;
-  height: 100vh; /* 화면 높이 */
-  overflow-y: auto; /* 세로 스크롤 가능 */
-  background-color: white; /* 메인 배경을 흰색으로 설정 */
-}
-
-/* 콘텐츠 영역 */
-.content {
-  width: 100%;
-  background-color: white; /* .content 배경을 흰색으로 설정 */
-}
-
-/* 각 포스트를 감싸는 그리드 컨테이너 */
-.post-wrapper {
-  width: 100%;
-  padding: 0;
-  background-color: white;
-  box-shadow: none;
-  border-radius: 0;
-  margin-bottom: 20px; /* 포스트 간 간격 */
-}
-
-/* 각 포스트의 스타일 */
-.post-grid {
-  padding: 20px;
-  background-color: white; /* 배경을 흰색으로 설정 */
-  box-shadow: none; /* 그림자 제거 */
-  border-radius: 0; /* 테두리 둥글게 하지 않음 */
-  width: 100%;
-  border-bottom: 2px solid #f0f0f0; /* 더 연한 회색 구분선 */
-}
-
-/* 마지막 포스트에서는 선 제거 */
-.post-grid:last-child {
-  border-bottom: none;
-}
-
-/* 포스트 요약 내용 스타일 */
-.post-excerpt {
-  max-height: 60px; /* 내용이 보일 높이를 설정 */
-  overflow: hidden; /* 넘치는 내용은 숨김 처리 */
-  transition: max-height 0.3s ease; /* 마우스를 올렸을 때 부드럽게 변하도록 애니메이션 추가 */
-}
-
-.post-wrapper:hover .post-excerpt {
-  max-height: 200px; /* 마우스를 올리면 더 많은 내용이 보이도록 설정 */
-}
-
-/* 포스트 제목 스타일 */
-h3 {
-  font-size: 22px;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  color: #222222;
-  font-weight: normal;
-}

@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/post_page.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="/">Jane</a>
+    </header>
+
+    <div class="container">
+        <h2>Posts</h2>
+        <!-- 카테고리 목록을 포함한 부분 -->
+        <section class="category-list-wrapper">
+            <ul class="category-list">
+                <li><a href="/category/R/">R projects</a></li>
+                <li><a href="/category/paperguidence/">Paper/Guidence</a></li>
+                <li><a href="/category/others/">Others</a></li>
+                <!-- 다른 카테고리 항목을 여기에 추가하세요 -->
+            </ul>
+        </section>
+
+        <!-- 포스트 전체를 감싸는 네모틀 -->
+        <div class="post-wrapper">
+            <!-- 포스트 제목 및 내용이 같은 네모틀 안에 위치 -->
+            <ul class="post-list">
+                {% for post in site.posts %}
+                    <li>
+                        <a href="{{ post.url }}">{{ post.title }}</a>  <!-- 각 포스트의 링크 -->
+                    </li>
+                {% else %}
+                    <li>No posts found.</li>
+                {% endfor %}
+            </ul>
+            
+            <!-- 카테고리 태그 -->
+            <div class="post-tags">
+                {% for tag in post.categories %}
+                    <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div> <!-- .post-wrapper 끝 -->
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Jane Park. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+/* 전체 요소의 box-sizing 설정 */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* 기본 body 스타일 */
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.2em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease; /* 다크 모드 전환 시 애니메이션 */
+}
+
+/* 다크 모드 스타일 */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+a.dark {
+  color: #bb86fc; /* 다크 모드에서 링크 색상 */
+}
+
+header.dark {
+  background-color: gray; /* 다크 모드에서 헤더 배경 */
+}
+
+/* 기본 header 스타일 */
+header {
+  position: absolute;  /* 절대 위치로 이동 */ 
+  top: 50px;           /* 상단에서 50px 위치 */
+  left: 50px;          /* 왼쪽에서 50px 위치 */
+  padding: 0;          /* 패딩 제거 */
+  background-color: none;
+  height: 90px;
+  text-align: left;
+  font-size: 30px;      /* 헤더 텍스트 크기 설정 */
+  font-weight: bold;    /* 텍스트 볼드 */
+  color: #000;          /* 텍스트 색상 설정 */
+  z-index: 1000;        /* 다른 요소들보다 우선 표시 */
+}
+
+header a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit;        /* 부모 요소(header)의 색상을 상속받음 */
+}
+
+.container {
+  margin-top: 50px; /* 헤더가 고정되어 있으므로 컨텐츠가 헤더에 가리지 않도록 여백 추가 */
+  display: flex;
+  flex-direction: column;  /* 포스트들을 세로로 정렬 */
+  align-items: center; /* 가로로 중앙 정렬 */
+  gap: 30px; /* 포스트들 간의 간격 */
+}
+
+.container h2 {
+  position: fixed;  /* 상대 위치로 설정 */
+  top: 30px;           /* 상단에서 40px 위치 */
+  background-color: transparent;  /* 배경색 투명 */
+  text-align: center;
+  color: #000;          /* 텍스트 색상 설정 */
+  font-size: 22px; 
+}
+
+.container p {
+  margin-top: 30px;  /* p 위에 10px 간격 추가 (선택사항) */
+  font-size: 15px;  
+}
+
+
+.post-wrapper {
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 100%;  /* 포스트의 너비 */
+  max-width: 1000px;  /* 최대 너비 설정 */
+  text-align: center;
+}
+
+/* 포스트 hover 스타일 */
+.post-wrapper:hover {
+  background-color: #eaeaea;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 포스트 제목 */
+.post-title {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #333;
+  background-color: #f4f4f4;  /* 배경색 추가 */
+  padding: 10px;  /* 패딩 추가 */
+}
+
+/* 포스트 메타 데이터 */
+.post-meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* 포스트 내용 */
+.post-content {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* 카테고리 태그 스타일 */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center; /* 태그들을 가운데 정렬 */
+}
+
+.post-tags .tag {
+  background-color: #bb86fc;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

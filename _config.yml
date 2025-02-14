@@ -66,8 +66,11 @@ sass:
   sass_dir: _sass
   style: compressed
 
-
 collections:
-  categories:
+  posts:
     output: true
-    permalink: /categories/:name/
+    
+markdown: kramdown
+
+url: https://j19mk.github.io
+baseurl: 

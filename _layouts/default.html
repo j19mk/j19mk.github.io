@@ -93,10 +93,10 @@
       </div>
       
       <ul class="category-list">
-        <li><a href="{{ "/index" | relative_url }}">Home</a></li>
-        <li><a href="{{ "/blog" | relative_url }}">Blog</a></li>
-        <li><a href="{{ "/categories.html" | relative_url }}">Categories</a></li>
-        <li><a href="{{ "/about" | relative_url }}">About</a></li>
+        <li><a href="{{ "/" | relative_url }}">Home</a></li>
+        <li><a href="{{ "postpage.html" | relative_url }}">Posts</a></li>
+        <li><a href="{{ "/archive.html"    | relative_url }}">Archive</a></li>
+        <li><a href="{{ "/about.html" | relative_url }}">About</a></li>
       </ul>
     </header>
 
@@ -129,23 +129,30 @@
         <p class="tagline">{{ site.plainwhite.tagline }}</p>
         {%- endif -%}
       </div>
-
-      <!-- 콘텐츠 부분을 grid로 설정 -->
-      <section class="content">
-        <div class="posts-wrapper">
-          {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-          {% for post in sorted_posts %}
-            <div class="post-wrapper">
-              <div class="post-grid">
-                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                <p class="post-excerpt">{{ post.excerpt }}</p>
-                <p><small>Posted on {{ post.date | date: "%B %d, %Y" }}</small></p>
-              </div>
+      <section class="category-section">
+          <div class="category-list">
+            <div class="category-card">
+              <a href="/categories/category1">
+                <h3>R projects</h3>
+                <p>This is a brief description of Category 1.</p>
+              </a>
             </div>
-          {% endfor %}
-        </div>
-      </section>
-
+            
+            <div class="category-card">
+              <a href="/categories/category2">
+                <h3>Papers/Guidelines</h3>
+                <p>This is a brief description of Category 2.</p>
+              </a>
+            </div>
+            
+            <div class="category-card">
+              <a href="/categories/category3">
+                <h3>Others</h3>
+                <p>This is a brief description of Category 3.</p>
+              </a>
+            </div>
+          </div>
+        </section>
     <footer class="{{condensed_class}}">
       {{ footer }}
     </footer>
