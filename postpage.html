@@ -32,10 +32,10 @@
         <!-- 포스트 전체를 감싸는 네모틀 -->
         <div class="post-wrapper">
             <!-- 포스트 제목 및 내용이 같은 네모틀 안에 위치 -->
-            <ul class="post-list">
-                {% for post in site.posts %}
+            <ul class="post-link">
+                {%- for post in site.posts -%}
                     <li>
-                        <a href="{{ post.url }}">{{ post.title }}</a>  <!-- 각 포스트의 링크 -->
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>  <!-- 각 포스트의 링크 -->
                     </li>
                 {% else %}
                     <li>No posts found.</li>
@@ -49,6 +49,7 @@
                 {% endfor %}
             </div>
         </div> <!-- .post-wrapper 끝 -->
+
     </div>
 
     <footer>
