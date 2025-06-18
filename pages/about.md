@@ -6,9 +6,20 @@ feature-img: "assets/img/pexels/travel.jpeg"
 tags: [Page]
 ---
 
-Type on Strap is based on Type Theme, a free and open-source theme for [Jekyll](http://jekyllrb.com/), licensed under the MIT License.
+Hello, This is Jane's Portfolio webpage.
 
-Head over to the [theme's documentation](https://github.com/sylhare/Type-on-Strap) for much more information about Type on Strap or to install this theme on your own Jekyll site.
+I am Minkyung (Jane) Park who is from South Korea. I am a undergradueate student studying below:
+    - Bachelor of Medical science majoring Genomics and medical informatics
+    - Bachelor of Science majoring Statistical modelling
 
-This file is an example of a page in Jekyll, that automatically shows up in the header navigation, you can delete or modify this file freely.
- 
+What I am interested in
+    - Clincial trial
+    - Biostatistic
+    - Data analyse
+    - 
+
+What I am studying 
+    - R programming
+    - SAS
+    - SQL
+    - Python
