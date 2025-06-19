@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creative
+title: SQL
 feature-img: "assets/img/portfolio/safe.png"
 img: "assets/img/portfolio/safe.png"
 date: August, 16 2014

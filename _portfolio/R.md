@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ninja
+title: R programming
 img: "assets/img/portfolio/ninja.png"
 date: April, 08 2014
 tags: [Lorem]
