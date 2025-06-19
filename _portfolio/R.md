@@ -1,12 +1,10 @@
 ---
 layout: post
 title: R programming
-img: "assets/img/portfolio/ninja.png"
-date: April, 08 2014
-tags: [Lorem]
+feature-img: "assets/img/portfolio/R.png"
+img: "assets/img/portfolio/R.png"
+tags: [R]
 ---
-
-![image]({{ page.img | relative_url }})
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
 eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
