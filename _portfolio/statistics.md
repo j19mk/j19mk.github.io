@@ -3,7 +3,7 @@ layout: post
 title: Statistics
 feature-img: "assets/img/portfolio/statistics.png"
 img: "assets/img/portfolio/statistics.png"
-tags: [statistics]
+tags: [Statistics]
 ---
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 

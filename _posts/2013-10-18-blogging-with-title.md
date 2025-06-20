@@ -2,7 +2,7 @@
 layout: post
 title: >
     Blogging with title 
-tags: [Test, Image]
+tags: [example]
 ---
 
 # I am a BIG title

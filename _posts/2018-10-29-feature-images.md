@@ -4,7 +4,7 @@ title: Feature images
 feature-img: "assets/img/feature-img/desk-messy.jpeg"
 thumbnail: "assets/img/thumbnails/feature-img/desk-messy.jpeg"
 last_modified: "2025-05-30"
-tags: [Test, Image]
+tags: [example]
 categories: Example
 ---
 

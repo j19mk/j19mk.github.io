@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Color Post
-tags: [Test, Color]
+tags: [example]
 color: brown
 author: sylhare
 categories: Example

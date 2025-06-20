@@ -4,7 +4,7 @@ title: Tech Stuff example
 color: rgb(250, 50, 50)
 feature-img: "assets/img/feature-img/circuit.jpeg"
 thumbnail: "assets/img/thumbnails/feature-img/circuit.jpeg"
-tags: [Highlight, Markdown]
+tags: [example]
 ---
 
 Let's demo some code snippet, with some mermaid diagrams.

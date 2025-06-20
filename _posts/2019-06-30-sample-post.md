@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sample post
-tags: [A Tag, Katex]
+tags: [example]
 last_modified: "2025-05-30"
 excerpt_separator: <!--more-->
 ---

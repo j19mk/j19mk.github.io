@@ -2,7 +2,7 @@
 layout: post
 title: "Bootstrap"
 bootstrap: true
-tags: [Test]
+tags: [example]
 categories: Demo
 ---
 

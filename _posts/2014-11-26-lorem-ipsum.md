@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Real Lorem Ipsum
-tags: [Image, Color]
+tags: [example]
 color: turquoise
 excerpt_separator: <!--more-->
 categories: Demo

@@ -2,7 +2,7 @@
 layout: post
 title: "Markup: Syntax Highlighting"
 author: mmistakes
-tags: [Highlight, Markdown]
+tags: [example]
 categories: Syntax
 ---
 

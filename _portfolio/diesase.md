@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Disease
+title: Disease Mechanisms
 feature-img: "assets/img/portfolio/disease.png"
 img: "assets/img/portfolio/disease.png"
-tags: [disease]
+tags: [Disease Mechanisms]
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Markdown and HTML
-tags: [Katex, Markdown]
+tags: [example]
 author: rohanchandra
 categories: Syntax
 ---
