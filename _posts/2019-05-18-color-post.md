@@ -7,6 +7,7 @@ author: sylhare
 categories: Example
 last_modified: "01-02-2023"
 excerpt_separator: <!--more-->
+published: false
 ---
 
 # What a colorful post!
