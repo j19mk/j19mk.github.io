@@ -1,15 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-03T19:32:22+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jane</title><subtitle>Jane&apos;s portfolio</subtitle><entry><title type="html">One sample t-test</title><link href="http://localhost:4000/2025/07/02/One-sample-t-test.html" rel="alternate" type="text/html" title="One sample t-test" /><published>2025-07-02T00:00:00+10:00</published><updated>2025-07-02T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/02/One%20sample%20t-test</id><content type="html" xml:base="http://localhost:4000/2025/07/02/One-sample-t-test.html"><![CDATA[<h3 id="one-sample-t-test">One sample t-test</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-04T19:58:22+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jane</title><subtitle>Jane&apos;s portfolio</subtitle><entry><title type="html">One sample t-test</title><link href="http://localhost:4000/2025/07/02/One-sample-t-test.html" rel="alternate" type="text/html" title="One sample t-test" /><published>2025-07-02T00:00:00+10:00</published><updated>2025-07-02T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/02/One%20sample%20t-test</id><content type="html" xml:base="http://localhost:4000/2025/07/02/One-sample-t-test.html"><![CDATA[<h3 id="one-sample-t-test-students-t-test">One sample t-test (Student’s t-test)</h3>
 <blockquote>
   <p>A test to determine whether there is a significant difference between <strong>the mean of a population</strong> and <strong>the mean of a single sample</strong>
 <!--more--></p>
 </blockquote>
 
+<p><br /></p>
 <h4 id="1-assumptions">1. Assumptions</h4>
 <ul>
   <li>The data have been ramdomly sampled from population</li>
   <li>The data is normally distributed</li>
 </ul>
 
+<p><br /></p>
 <h4 id="2-hypotheses">2. Hypotheses</h4>
 
 <p><u>Two tailed (non-directional)<u></u></u></p>
@@ -52,26 +54,272 @@
     <figcaption class="caption-style">Figure 1. Comparison between two tailed test and one tailed test</figcaption>
 </figure>
 
+<p><br /></p>
 <h4 id="3-test-results">3. Test results</h4>
 <ul>
-  <li>t-value or t-statistics
-    <ul>
-      <li>It measures how far the sample mean is from the hypothesized population mean in units of the standard error</li>
-    </ul>
-  </li>
+  <li>t-value or t-statistics</li>
 </ul>
 
 \[t = \frac{\text{Difference between mean values}}{\text{Standard deviation from the mean}} = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}\]
 
 <ul>
-  <li>
-    <p>p-value</p>
+  <li>degree of freedom (df)</li>
+</ul>
+
+\[df = n-1\]
+
+<ul>
+  <li>p-value</li>
+</ul>
+
+<p><br /></p>
+<h4 id="4-how-to-interpret-with-the-test-results">4. How to interpret with the test results</h4>
+
+<ul>
+  <li>t-value
+    <ul>
+      <li>The larger the magnitude of t, the more this argues against the null hypothesis</li>
+    </ul>
+
+    <p>\(\Rightarrow\) t-value &gt; critical t-value = reject H<sub>0</sub></p>
   </li>
-  <li>
-    <p>degree of freedom (df)</p>
+  <li>p-value
+    <ul>
+      <li>p-value \(&lt; \alpha\) (significant level) = reject H<sub>0</sub></li>
+      <li>p-value \(\ge \alpha\) (significant level) = fail to reject H<sub>0</sub></li>
+    </ul>
   </li>
 </ul>
 
+<p><br /></p>
+<h4 id="5-examples">5. Examples</h4>
+<ul>
+  <li><strong>Q1. Does the online statistics tutorial have a positive effect on exam results?</strong>
+    <ul>
+      <li>1) Dataset
+        <ul>
+          <li>Student’s scores</li>
+        </ul>
+      </li>
+    </ul>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>28</td>
+          <td>29</td>
+          <td>35</td>
+          <td>37</td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td>26</td>
+          <td>37</td>
+          <td>39</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>29</td>
+          <td>36</td>
+          <td>38</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>2) Check assumptions
+        <ul>
+          <li>Normarlity</li>
+        </ul>
+      </li>
+      <li>3) Hypotheses
+        <ul>
+          <li>
+            <p>H<sub>0</sub>: The online statistics tutorial has no significant effect on exam results</p>
+          </li>
+          <li>
+            <p>H<sub>1</sub>: The online statistics tutorial has significant effect on exam results</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>4) R code</p>
+
+        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
+  </span><span class="n">dataset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">28</span><span class="p">,</span><span class="w"> </span><span class="m">29</span><span class="p">,</span><span class="w"> </span><span class="m">35</span><span class="p">,</span><span class="w"> </span><span class="m">37</span><span class="p">,</span><span class="w"> </span><span class="m">32</span><span class="p">,</span><span class="w"> </span><span class="m">26</span><span class="p">,</span><span class="w"> </span><span class="m">37</span><span class="p">,</span><span class="w"> </span><span class="m">39</span><span class="p">,</span><span class="w"> </span><span class="m">22</span><span class="p">,</span><span class="w"> </span><span class="m">29</span><span class="p">,</span><span class="w"> </span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">)</span><span class="w">
+        
+  </span><span class="c1"># 2. Normality check</span><span class="w">
+  </span><span class="n">hist</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># histogram</span><span class="w">
+        
+  </span><span class="n">qqnorm</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w">
+  </span><span class="n">qqline</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"steelblue"</span><span class="p">)</span><span class="w"> </span><span class="c1"># Q-Q plot</span><span class="w">
+        
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+        
+  </span><span class="c1"># 3. Student's t-test</span><span class="w">
+  </span><span class="n">pop_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="c1"># population mean score</span><span class="w">
+        
+  </span><span class="n">t.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pop_mean</span><span class="p">)</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>5) Results</li>
+    </ul>
+  </li>
+</ul>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_histogram.png" alt="onettest_histogram.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 2. histogram of dataset</figcaption>
+</figure>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_qqplot.png" alt="onettest_qqplot.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 3. Q-Q plot</figcaption>
+</figure>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_shapiro.png" alt="onettest_shapiro.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 4. shapiro.test</figcaption>
+</figure>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest.png" alt="onettest.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 5. Student's t-test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 6) Interpretation
+    
+    - Normality
+        - Histogram: No noramlly distributed, showing a slight right skwed distribution
+        - Q-Q plot:
+        - shapiro.test:
+        
+    - Student's t-test: 
+</code></pre></div></div>
+
+<p><br /></p>
+<ul>
+  <li><strong>Q2. Does the online statistics tutorial have a positive effect on exam results?</strong>
+    <ul>
+      <li>1) Dataset
+        <ul>
+          <li>Amount of protein from energy bars</li>
+        </ul>
+      </li>
+    </ul>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>20.70</td>
+          <td>27.46</td>
+          <td>22.15</td>
+          <td>19.85</td>
+          <td>21.29</td>
+          <td>24.75</td>
+          <td>20.75</td>
+          <td>22.91</td>
+          <td>25.34</td>
+          <td>20.33</td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td>21.54</td>
+          <td>21.08</td>
+          <td>22.14</td>
+          <td>19.56</td>
+          <td>21.10</td>
+          <td>18.04</td>
+          <td>24.12</td>
+          <td>19.95</td>
+          <td>19.72</td>
+          <td>18.28</td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td>16.26</td>
+          <td>17.46</td>
+          <td>20.53</td>
+          <td>22.12</td>
+          <td>25.06</td>
+          <td>22.44</td>
+          <td>19.08</td>
+          <td>19.88</td>
+          <td>21.29</td>
+          <td>22.33</td>
+          <td>25.79</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>2) Check assumptions
+        <ul>
+          <li>Normarlity</li>
+        </ul>
+      </li>
+      <li>3) Hypotheses
+        <ul>
+          <li>H<sub>0</sub>: The mean value from the sample and the predefined value does not differ significantly</li>
+        </ul>
+
+        <p>\(\Rightarrow\) The online statistics tutorial has no significant effect on exam results</p>
+
+        <ul>
+          <li>H<sub>1</sub>: The online statistics tutorial has significant effect on exam results</li>
+        </ul>
+      </li>
+      <li>
+        <p>4) R code</p>
+
+        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
+  </span><span class="n">dataset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">20.70</span><span class="p">,</span><span class="w"> </span><span class="m">27.46</span><span class="p">,</span><span class="w"> </span><span class="m">22.15</span><span class="p">,</span><span class="w"> </span><span class="m">19.85</span><span class="p">,</span><span class="w"> </span><span class="m">21.29</span><span class="p">,</span><span class="w"> </span><span class="m">24.75</span><span class="p">,</span><span class="w"> </span><span class="m">20.75</span><span class="p">,</span><span class="w"> </span><span class="m">22.91</span><span class="p">,</span><span class="w"> </span><span class="m">25.34</span><span class="p">,</span><span class="w"> </span><span class="m">20.33</span><span class="p">,</span><span class="w"> </span><span class="m">21.54</span><span class="p">,</span><span class="w"> </span><span class="m">21.08</span><span class="p">,</span><span class="w">
+              </span><span class="m">22.14</span><span class="p">,</span><span class="w"> </span><span class="m">19.56</span><span class="p">,</span><span class="w"> </span><span class="m">21.10</span><span class="p">,</span><span class="w"> </span><span class="m">18.04</span><span class="p">,</span><span class="w"> </span><span class="m">24.12</span><span class="p">,</span><span class="w"> </span><span class="m">19.95</span><span class="p">,</span><span class="w"> </span><span class="m">19.72</span><span class="p">,</span><span class="w"> </span><span class="m">18.28</span><span class="p">,</span><span class="w"> </span><span class="m">16.26</span><span class="p">,</span><span class="w"> </span><span class="m">17.46</span><span class="p">,</span><span class="w"> </span><span class="m">20.53</span><span class="p">,</span><span class="w"> </span><span class="m">22.12</span><span class="p">,</span><span class="w">
+              </span><span class="m">25.06</span><span class="p">,</span><span class="w"> </span><span class="m">22.44</span><span class="p">,</span><span class="w"> </span><span class="m">19.08</span><span class="p">,</span><span class="w"> </span><span class="m">19.88</span><span class="p">,</span><span class="w"> </span><span class="m">21.39</span><span class="p">,</span><span class="w"> </span><span class="m">22.33</span><span class="p">,</span><span class="w"> </span><span class="m">25.79</span><span class="p">)</span><span class="w">
+             
+  </span><span class="c1"># 2. Normality check</span><span class="w">
+  </span><span class="n">hist</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># Normality check 1_histogram</span><span class="w">
+
+  </span><span class="n">qqnorm</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w">
+  </span><span class="n">qqline</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"steelblue"</span><span class="p">)</span><span class="w">
+
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># Normality check 3_shariro.test</span><span class="w">
+        
+  </span><span class="c1"># 3. Student's t-test</span><span class="w">
+  </span><span class="n">protein</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="c1"># labeled amount protein amount</span><span class="w">
+
+  </span><span class="n">t.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">protein</span><span class="p">)</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>5) Results</p>
+      </li>
+      <li>6) Interpretation</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
 <h3 id="references">References</h3>
 <ul>
   <li>Staistical units from <a href="https://www.mq.edu.au/" target="_blank">Macquarie University</a></li>
@@ -79,7 +327,7 @@
   <li><a href="https://datatab.net/tutorial/t-test" target="_blank">DATAtab</a></li>
   <li><a href="https://www.jmp.com/en/statistics-knowledge-portal/t-test" target="_blank">jmp.STATISTICAL DISCOVERY</a></li>
   <li><a href="https://arshren.medium.com/hypothesis-testing-an-intuitive-explanation-898d547db38d" target="_blank">Figure 1</a></li>
-</ul>]]></content><author><name></name></author><category term="Statistics" /><summary type="html"><![CDATA[One sample t-test A test to determine whether there is a significant difference between the mean of a population and the mean of a single sample]]></summary></entry><entry><title type="html">Dark Mode</title><link href="http://localhost:4000/demo/2021/04/27/dark-mode.html" rel="alternate" type="text/html" title="Dark Mode" /><published>2021-04-27T00:00:00+10:00</published><updated>2021-04-27T00:00:00+10:00</updated><id>http://localhost:4000/demo/2021/04/27/dark-mode</id><content type="html" xml:base="http://localhost:4000/demo/2021/04/27/dark-mode.html"><![CDATA[<p>More colors with less light. Click the <strong>half-moon</strong> most top-right button to turn the lights ON/OFF.
+</ul>]]></content><author><name></name></author><category term="Statistics" /><summary type="html"><![CDATA[One sample t-test (Student’s t-test) A test to determine whether there is a significant difference between the mean of a population and the mean of a single sample]]></summary></entry><entry><title type="html">Dark Mode</title><link href="http://localhost:4000/demo/2021/04/27/dark-mode.html" rel="alternate" type="text/html" title="Dark Mode" /><published>2021-04-27T00:00:00+10:00</published><updated>2021-04-27T00:00:00+10:00</updated><id>http://localhost:4000/demo/2021/04/27/dark-mode</id><content type="html" xml:base="http://localhost:4000/demo/2021/04/27/dark-mode.html"><![CDATA[<p>More colors with less light. Click the <strong>half-moon</strong> most top-right button to turn the lights ON/OFF.
 Here is a bit of everything, so you can check how the theme look, have fun! 👌</p>
 
 <h1 id="headers">Headers</h1>

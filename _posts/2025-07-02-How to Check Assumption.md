@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "<span style='color:black;'>Assumption</span>"
+title: "<span style='color:black;'>How to check assumptions</span>"
 feature-img: "assets/img/feature-img/t-test.jpeg"
 tags: [Statistics]
 last_modified: "2025-07-02"
