@@ -70,22 +70,36 @@ $$ df = n-1 $$
 <br>
 #### 5. Examples
 - **Q1. Does the online statistics tutorial have a positive effect on exam results?**
-    - 1) Dataset
+    - <u>1) Dataset<u>
         - Student's scores
 
     | 28 | 29 | 35 | 37 |
     | 32 | 26 | 37 | 39 |
     | 22 | 29 | 36 | 38 |
 
-    - 2) Check assumptions
+    - <u>2) Check assumptions<u>
         - Normarlity
         
-    - 3) Hypotheses
+    - <u>3) Hypotheses<u>
         - H<sub>0</sub>: The online statistics tutorial has no significant effect on exam results
     
         - H<sub>1</sub>: The online statistics tutorial has significant effect on exam results  
    
-    - 4) R code
+    - <u>4) Resuts & Interpretation<u>
+        
+        - Normality
+            - Histogram: Not normally distributed, showing a slight right-skewed distribution
+            - Q-Q plot: Most points are close to the line, indicating that normality is acceptable
+            - shapiro.test: The dataset appears to be normally distributed, as the p-value (0.3116) > 0.05
+            
+        - Student's t-test
+            - t-value: The calculated t-value (2.7462) is greater than the critical t-value (2.200985), suggesting that H<sub>0</sub> is likely to be rejected
+            - p-value: The p-value is 0.01902, which indicates that H<sub>0</sub> should be rejected
+            - 95% confident level: The true population mean is likely to lie within the interval [28.8601, 35.0636]
+            - Sample mean: The sample mean is 32.3333
+            
+        
+    - <u>5) R code & results<u>
     
         ```r
         # 1. Dataset
@@ -93,41 +107,43 @@ $$ df = n-1 $$
         
         # 2. Normality check
         hist(dataset) # histogram
+        ```
         
+        {% include aligner.html images="pexels/onettest_histogram_q1.png" column=1 caption="Figure 2. histogram of dataset" %}
+       
+        
+        # 2. Normality check
         qqnorm(dataset)
         qqline(dataset, col = "steelblue") # Q-Q plot
         
+        
+        {% include aligner.html images="pexels/onettest_qqplot_q1.png" column=1 caption="Figure 3. Q-Q plot" %}
+        
+               
+        # 2. Normality check
         shapiro.test(dataset) # shariro.test
+        
+        {% include aligner.html images="pexels/onettest_shapiro_q1.png" caption="Figure 4. shapiro.test" %}
+        
         
         # 3. Student's t-test
         pop_mean <- 28 # population mean score
         
         t.test(dataset, mu = pop_mean)
-        ```
-        
-    - 5) Results
-        {% include aligner.html images="pexels/onettest_histogram.png" column=1 caption="Figure 2. histogram of dataset" %}
-    
-        {% include aligner.html images="pexels/onettest_qqplot.png" column=1 caption="Figure 3. Q-Q plot" %}
-        
-        {% include aligner.html images="pexels/onettest_shapiro.png" caption="Figure 4. shapiro.test" %}
-        
-        {% include aligner.html images="pexels/onettest.png" caption="Figure 5. Student's t-test" %}
-        
 
-    - 6) Interpretation
+        {% include aligner.html images="pexels/onettest_q1.png" caption="Figure 5. Student's t-test" %}
         
-        - Normality
-            - Histogram: No noramlly distributed, showing a slight right skwed distribution
-            - Q-Q plot:
-            - shapiro.test:
-            
-        - Student's t-test: 
+        # 4. Critical t-value
+        
+        qt(p=.05/2, df=11, lower.tail=FALSE) # critical t-value
+
+        {% include aligner.html images="pexels/onettest_criticalTValue_q1.png" caption="Figure 6. Critical t-value with df 11" %}
+
         
         
 <br>
-- **Q2. Does the online statistics tutorial have a positive effect on exam results?**
-    - 1) Dataset
+- **Q2. Does the average amount of protein in energy bars equal 20 g?**
+    - <u>1) Dataset<u>
         - Amount of protein from energy bars
 
     | 20.70 | 27.46 | 22.15 | 19.85 | 21.29 | 24.75 | 20.75 | 22.91 | 25.34 | 20.33 |       |
@@ -135,17 +151,29 @@ $$ df = n-1 $$
     | 16.26 | 17.46 | 20.53 | 22.12 | 25.06 | 22.44 | 19.08 | 19.88 | 21.29 | 22.33 | 25.79 | 
 
 
-    - 2) Check assumptions
+    - <u>2) Check assumptions<u>
         - Normarlity
         
-    - 3) Hypotheses
-        - H<sub>0</sub>: The mean value from the sample and the predefined value does not differ significantly
+    - <u>3) Hypotheses<u>
+        - H<sub>0</sub>: The mean protein content of energy bars is equal to 20 g
     
-        $$\Rightarrow$$ The online statistics tutorial has no significant effect on exam results
-    
-        - H<sub>1</sub>: The online statistics tutorial has significant effect on exam results  
-   
-    - 4) R code
+        - H<sub>1</sub>: The mean protein content of energy bars is not equal to 20 g
+
+    - <u>4) Resuts & Interpretation<u>
+        
+        - Normality
+            - Histogram: Approximately normally distributed, showing a slight left skew
+            - Q-Q plot: Most middle points are close to the line, but the points at the edges deviate slightly from the line
+            - shapiro.test: The dataset appears to be normally distributed, as the p-value (0.7191) > 0.05
+            
+        - Student's t-test
+            - t-value: The calculated t-value (3.0668) is greater than the critical t-value (2.0472), suggesting that H<sub>0</sub> is likely to be rejected
+            - p-value: The p-value is 0.04553, which indicates that H<sub>0</sub> should be rejected
+            - 95% confident level: The true population mean is likely to lie within the interval [20.46771, 22.33229]
+            - Sample mean: The sample mean is 21.4
+            
+        
+    - <u>5) R code & results<u>
         
         ```r
         # 1. Dataset
@@ -154,24 +182,35 @@ $$ df = n-1 $$
                     25.06, 22.44, 19.08, 19.88, 21.39, 22.33, 25.79)
              
         # 2. Normality check
-        hist(dataset) # Normality check 1_histogram
+        hist(dataset) # histogram
+        ```
+        {% include aligner.html images="pexels/onettest_histogram_q2.png" column=1 caption="Figure 7. histogram of dataset" %}
 
+        
+        # 2. Normality check        
         qqnorm(dataset)
-        qqline(dataset, col = "steelblue")
+        qqline(dataset, col = "steelblue") # Q-Q plot
+        
+        {% include aligner.html images="pexels/onettest_qqplot_q2.png" column=1 caption="Figure 8. Q-Q plot" %}
+                
+        # 2. Normality check  
+        shapiro.test(dataset) # shariro.test
 
-        shapiro.test(dataset) # Normality check 3_shariro.test
+        {% include aligner.html images="pexels/onettest_shapiro_q2.png" caption="Figure 9. shapiro.test" %}
         
         # 3. Student's t-test
         protein <- 20 # labeled amount protein amount
 
         t.test(dataset, mu = protein)
-        ```
+        
+        {% include aligner.html images="pexels/onettest_q2.png" caption="Figure 10. Student's t-test" %}
 
-    - 5) Results
-    
-    
-    - 6) Interpretation
-    
+
+        # 4. Critical t-value
+        
+        qt(p=.05/2, df=22, lower.tail=FALSE) # critical t-value
+        
+        {% include aligner.html images="pexels/onettest_criticalTValue_q2.png" caption="Figure 11. Critical t-value with df 30" %}
     
     
 <br>

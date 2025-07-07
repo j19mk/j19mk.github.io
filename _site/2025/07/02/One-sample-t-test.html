@@ -120,8 +120,8 @@
 <ul>
   <li><strong>Q1. Does the online statistics tutorial have a positive effect on exam results?</strong>
     <ul>
-      <li>1) Dataset
-        <ul>
+      <li><u>1) Dataset<u>
+</u></u>        <ul>
           <li>Student’s scores</li>
         </ul>
       </li>
@@ -151,13 +151,13 @@
     </table>
 
     <ul>
-      <li>2) Check assumptions
-        <ul>
+      <li><u>2) Check assumptions<u>
+</u></u>        <ul>
           <li>Normarlity</li>
         </ul>
       </li>
-      <li>3) Hypotheses
-        <ul>
+      <li><u>3) Hypotheses<u>
+</u></u>        <ul>
           <li>
             <p>H<sub>0</sub>: The online statistics tutorial has no significant effect on exam results</p>
           </li>
@@ -167,26 +167,36 @@
         </ul>
       </li>
       <li>
-        <p>4) R code</p>
+        <p><u>4) Resuts &amp; Interpretation<u></u></u></p>
+
+        <ul>
+          <li>Normality
+            <ul>
+              <li>Histogram: Not normally distributed, showing a slight right-skewed distribution</li>
+              <li>Q-Q plot: Most points are close to the line, indicating that normality is acceptable</li>
+              <li>shapiro.test: The dataset appears to be normally distributed, as the p-value (0.3116) &gt; 0.05</li>
+            </ul>
+          </li>
+          <li>Student’s t-test
+            <ul>
+              <li>t-value: The calculated t-value (2.7462) is greater than the critical t-value (2.200985), suggesting that H<sub>0</sub> is likely to be rejected</li>
+              <li>p-value: The p-value is 0.01902, which indicates that H<sub>0</sub> should be rejected</li>
+              <li>95% confident level: The true population mean is likely to lie within the interval [28.8601, 35.0636]</li>
+              <li>Sample mean: The sample mean is 32.3333</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><u>5) R code &amp; results<u></u></u></p>
 
         <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
   </span><span class="n">dataset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">28</span><span class="p">,</span><span class="w"> </span><span class="m">29</span><span class="p">,</span><span class="w"> </span><span class="m">35</span><span class="p">,</span><span class="w"> </span><span class="m">37</span><span class="p">,</span><span class="w"> </span><span class="m">32</span><span class="p">,</span><span class="w"> </span><span class="m">26</span><span class="p">,</span><span class="w"> </span><span class="m">37</span><span class="p">,</span><span class="w"> </span><span class="m">39</span><span class="p">,</span><span class="w"> </span><span class="m">22</span><span class="p">,</span><span class="w"> </span><span class="m">29</span><span class="p">,</span><span class="w"> </span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">)</span><span class="w">
         
   </span><span class="c1"># 2. Normality check</span><span class="w">
   </span><span class="n">hist</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># histogram</span><span class="w">
-        
-  </span><span class="n">qqnorm</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w">
-  </span><span class="n">qqline</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"steelblue"</span><span class="p">)</span><span class="w"> </span><span class="c1"># Q-Q plot</span><span class="w">
-        
-  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
-        
-  </span><span class="c1"># 3. Student's t-test</span><span class="w">
-  </span><span class="n">pop_mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="c1"># population mean score</span><span class="w">
-        
-  </span><span class="n">t.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pop_mean</span><span class="p">)</span><span class="w">
 </span></code></pre></div>        </div>
       </li>
-      <li>5) Results</li>
     </ul>
   </li>
 </ul>
@@ -194,59 +204,79 @@
 <figure class="row">
     
     <div class="column">
-        <img class="single" src="/assets/img/pexels/onettest_histogram.png" alt="onettest_histogram.png" />
+        <img class="single" src="/assets/img/pexels/onettest_histogram_q1.png" alt="onettest_histogram_q1.png" />
     </div>
     
     
     <figcaption class="caption-style">Figure 2. histogram of dataset</figcaption>
 </figure>
 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2. Normality check
+    qqnorm(dataset)
+    qqline(dataset, col = "steelblue") # Q-Q plot
+</code></pre></div></div>
+
 <figure class="row">
     
     <div class="column">
-        <img class="single" src="/assets/img/pexels/onettest_qqplot.png" alt="onettest_qqplot.png" />
+        <img class="single" src="/assets/img/pexels/onettest_qqplot_q1.png" alt="onettest_qqplot_q1.png" />
     </div>
     
     
     <figcaption class="caption-style">Figure 3. Q-Q plot</figcaption>
 </figure>
 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2. Normality check
+    shapiro.test(dataset) # shariro.test
+</code></pre></div></div>
+
 <figure class="row">
     
     <div class="column">
-        <img class="single" src="/assets/img/pexels/onettest_shapiro.png" alt="onettest_shapiro.png" />
+        <img class="single" src="/assets/img/pexels/onettest_shapiro_q1.png" alt="onettest_shapiro_q1.png" />
     </div>
     
     
     <figcaption class="caption-style">Figure 4. shapiro.test</figcaption>
 </figure>
 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Student's t-test
+    pop_mean &lt;- 28 # population mean score
+    
+    t.test(dataset, mu = pop_mean)
+</code></pre></div></div>
+
 <figure class="row">
     
     <div class="column">
-        <img class="single" src="/assets/img/pexels/onettest.png" alt="onettest.png" />
+        <img class="single" src="/assets/img/pexels/onettest_q1.png" alt="onettest_q1.png" />
     </div>
     
     
     <figcaption class="caption-style">Figure 5. Student's t-test</figcaption>
 </figure>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 6) Interpretation
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Critical t-value
     
-    - Normality
-        - Histogram: No noramlly distributed, showing a slight right skwed distribution
-        - Q-Q plot:
-        - shapiro.test:
-        
-    - Student's t-test: 
+    qt(p=.05/2, df=11, lower.tail=FALSE) # critical t-value
 </code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_criticalTValue_q1.png" alt="onettest_criticalTValue_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 6. Critical t-value with df 11</figcaption>
+</figure>
 
 <p><br /></p>
 <ul>
-  <li><strong>Q2. Does the online statistics tutorial have a positive effect on exam results?</strong>
+  <li><strong>Q2. Does the average amount of protein in energy bars equal 20 g?</strong>
     <ul>
-      <li>1) Dataset
-        <ul>
+      <li><u>1) Dataset<u>
+</u></u>        <ul>
           <li>Amount of protein from energy bars</li>
         </ul>
       </li>
@@ -297,24 +327,44 @@
     </table>
 
     <ul>
-      <li>2) Check assumptions
-        <ul>
+      <li><u>2) Check assumptions<u>
+</u></u>        <ul>
           <li>Normarlity</li>
         </ul>
       </li>
-      <li>3) Hypotheses
-        <ul>
-          <li>H<sub>0</sub>: The mean value from the sample and the predefined value does not differ significantly</li>
-        </ul>
-
-        <p>\(\Rightarrow\) The online statistics tutorial has no significant effect on exam results</p>
-
-        <ul>
-          <li>H<sub>1</sub>: The online statistics tutorial has significant effect on exam results</li>
+      <li><u>3) Hypotheses<u>
+</u></u>        <ul>
+          <li>
+            <p>H<sub>0</sub>: The mean protein content of energy bars is equal to 20 g</p>
+          </li>
+          <li>
+            <p>H<sub>1</sub>: The mean protein content of energy bars is not equal to 20 g</p>
+          </li>
         </ul>
       </li>
       <li>
-        <p>4) R code</p>
+        <p><u>4) Resuts &amp; Interpretation<u></u></u></p>
+
+        <ul>
+          <li>Normality
+            <ul>
+              <li>Histogram: Approximately normally distributed, showing a slight left skew</li>
+              <li>Q-Q plot: Most middle points are close to the line, but the points at the edges deviate slightly from the line</li>
+              <li>shapiro.test: The dataset appears to be normally distributed, as the p-value (0.7191) &gt; 0.05</li>
+            </ul>
+          </li>
+          <li>Student’s t-test
+            <ul>
+              <li>t-value: The calculated t-value (3.0668) is greater than the critical t-value (2.0472), suggesting that H<sub>0</sub> is likely to be rejected</li>
+              <li>p-value: The p-value is 0.04553, which indicates that H<sub>0</sub> should be rejected</li>
+              <li>95% confident level: The true population mean is likely to lie within the interval [20.46771, 22.33229]</li>
+              <li>Sample mean: The sample mean is 21.4</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><u>5) R code &amp; results<u></u></u></p>
 
         <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
   </span><span class="n">dataset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">20.70</span><span class="p">,</span><span class="w"> </span><span class="m">27.46</span><span class="p">,</span><span class="w"> </span><span class="m">22.15</span><span class="p">,</span><span class="w"> </span><span class="m">19.85</span><span class="p">,</span><span class="w"> </span><span class="m">21.29</span><span class="p">,</span><span class="w"> </span><span class="m">24.75</span><span class="p">,</span><span class="w"> </span><span class="m">20.75</span><span class="p">,</span><span class="w"> </span><span class="m">22.91</span><span class="p">,</span><span class="w"> </span><span class="m">25.34</span><span class="p">,</span><span class="w"> </span><span class="m">20.33</span><span class="p">,</span><span class="w"> </span><span class="m">21.54</span><span class="p">,</span><span class="w"> </span><span class="m">21.08</span><span class="p">,</span><span class="w">
@@ -322,26 +372,82 @@
               </span><span class="m">25.06</span><span class="p">,</span><span class="w"> </span><span class="m">22.44</span><span class="p">,</span><span class="w"> </span><span class="m">19.08</span><span class="p">,</span><span class="w"> </span><span class="m">19.88</span><span class="p">,</span><span class="w"> </span><span class="m">21.39</span><span class="p">,</span><span class="w"> </span><span class="m">22.33</span><span class="p">,</span><span class="w"> </span><span class="m">25.79</span><span class="p">)</span><span class="w">
              
   </span><span class="c1"># 2. Normality check</span><span class="w">
-  </span><span class="n">hist</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># Normality check 1_histogram</span><span class="w">
-
-  </span><span class="n">qqnorm</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w">
-  </span><span class="n">qqline</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"steelblue"</span><span class="p">)</span><span class="w">
-
-  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># Normality check 3_shariro.test</span><span class="w">
-        
-  </span><span class="c1"># 3. Student's t-test</span><span class="w">
-  </span><span class="n">protein</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="c1"># labeled amount protein amount</span><span class="w">
-
-  </span><span class="n">t.test</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">protein</span><span class="p">)</span><span class="w">
+  </span><span class="n">hist</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="c1"># histogram</span><span class="w">
 </span></code></pre></div>        </div>
       </li>
-      <li>
-        <p>5) Results</p>
-      </li>
-      <li>6) Interpretation</li>
     </ul>
   </li>
 </ul>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_histogram_q2.png" alt="onettest_histogram_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 7. histogram of dataset</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2. Normality check        
+    qqnorm(dataset)
+    qqline(dataset, col = "steelblue") # Q-Q plot
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_qqplot_q2.png" alt="onettest_qqplot_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 8. Q-Q plot</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2. Normality check  
+    shapiro.test(dataset) # shariro.test
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_shapiro_q2.png" alt="onettest_shapiro_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 9. shapiro.test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Student's t-test
+    protein &lt;- 20 # labeled amount protein amount
+
+    t.test(dataset, mu = protein)
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_q2.png" alt="onettest_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 10. Student's t-test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Critical t-value
+    
+    qt(p=.05/2, df=22, lower.tail=FALSE) # critical t-value
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/onettest_criticalTValue_q2.png" alt="onettest_criticalTValue_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 11. Critical t-value with df 30</figcaption>
+</figure>
 
 <p><br /></p>
 <h3 id="references">References</h3>
