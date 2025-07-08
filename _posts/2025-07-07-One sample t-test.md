@@ -3,7 +3,7 @@ layout: post
 title: "<span style='color:black;'>One sample t-test</span>"
 feature-img: "assets/img/feature-img/t-test.jpeg"
 tags: [Statistics]
-last_modified: "2025-07-02"
+last_modified: "2025-07-07"
 excerpt_separator: <!--more-->
 ---
 
@@ -16,7 +16,7 @@ excerpt_separator: <!--more-->
 - The data have been ramdomly sampled from population
 - The data is normally distributed
 
- <br>   
+<br>   
 #### 2. Hypotheses
 
 <u>Two tailed (non-directional)<u>
