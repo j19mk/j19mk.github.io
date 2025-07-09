@@ -123,47 +123,365 @@
 <ul>
   <li><strong>Q1. Is there a significant difference between the examination results in the summer and winter semester?</strong>
     <ul>
-      <li>
-        <p><u>1) Dataset<u></u></u></p>
+      <li><u>1) Dataset<u>
+</u></u>        <ul>
+          <li>Summer semester</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>52</td>
+              <td>61</td>
+              <td>40</td>
+              <td>46</td>
+              <td>50</td>
+              <td>56</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>44</td>
+              <td>47</td>
+              <td>70</td>
+              <td>40</td>
+              <td>65</td>
+              <td>38</td>
+              <td>68</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li>Winter semester</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>53</td>
+              <td>71</td>
+              <td>38</td>
+              <td>34</td>
+              <td>68</td>
+              <td>68</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>41</td>
+              <td>38</td>
+              <td>23</td>
+              <td>28</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
       </li>
-      <li>
-        <p><u>2) Check assumptions<u></u></u></p>
+      <li><u>2) Check assumptions<u>
+</u></u>        <ul>
+          <li>Normality</li>
+          <li>Homogeneity of variance</li>
+        </ul>
       </li>
-      <li>
-        <p><u>3) Hypotheses<u></u></u></p>
+      <li><u>3) Hypotheses<u>
+</u></u>        <ul>
+          <li>
+            <p>H<sub>0</sub>:</p>
+          </li>
+          <li>
+            <p>H<sub>1</sub>:</p>
+          </li>
+        </ul>
       </li>
       <li>
         <p><u>4) Results &amp; Interpretation<u></u></u></p>
+
+        <ul>
+          <li>Normality
+            <ul>
+              <li>shaprio.test:</li>
+            </ul>
+          </li>
+          <li>Homogeneity of variance
+            <ul>
+              <li>Levene Test:</li>
+              <li>Boxplot</li>
+            </ul>
+          </li>
+        </ul>
       </li>
-      <li>
-        <p><u>5) R code &amp; results<u></u></u></p>
+      <li><u>5) R code &amp; results<u>
+</u></u>        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
+  </span><span class="n">summer</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">61</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">46</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="m">56</span><span class="p">,</span><span class="w"> </span><span class="m">44</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">70</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">65</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">)</span><span class="w">
+  </span><span class="n">winter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">53</span><span class="p">,</span><span class="w"> </span><span class="m">71</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">34</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">46</span><span class="p">,</span><span class="w"> </span><span class="m">41</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="m">28</span><span class="p">)</span><span class="w">
+      
+  </span><span class="c1"># 2-1. Normality check  </span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">summer</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">winter</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+</span></code></pre></div>        </div>
       </li>
     </ul>
   </li>
 </ul>
 
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_shapiro_q1.png" alt="twottest_shapiro_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 1. Shapiro.test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
+    library(car)
+
+    group &lt;- c(rep("summer", length(summer)), rep("winter", length(winter))) 
+    values &lt;- c(summer, winter)
+
+    leveneTest(values ~ group) # levene test
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_levene_q1.png" alt="twottest_levene_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 2. Levene Test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
+    boxplot(summer, winter,
+            names = c("summer", "winter"),
+            main = "Comparison of Two Groups",
+            ylab = "Values",
+            col = c("skyblue", "pink")) # boxplot
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_boxplot_q1.png" alt="twottest_boxplot_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 3. Boxplot</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Two sample t-test
+    ttest &lt;- t.test(summer, winter, var.equal = TRUE)
+    ttest
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_q1.png" alt="twottest_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 4. Two sample t-test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Critical t-value
+    qt(p=.05/2, df=ttest$parameter, lower.tail=FALSE) # critical t-value
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_criticalTvalue_q1.png" alt="twottest_criticalTvalue_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 5. Critical t-value</figcaption>
+</figure>
+
 <p><br /></p>
 <ul>
-  <li><strong>Q2. Is there a significant difference between the examination results in the summer and winter semester?</strong>
+  <li><strong>Q2. Is there a significant difference between the body fats in men and women?</strong>
     <ul>
-      <li>
-        <p><u>1) Dataset<u></u></u></p>
+      <li><u>1) Dataset<u>
+</u></u>        <ul>
+          <li>Body fats of Men</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>13.3</td>
+              <td>6.0</td>
+              <td>20.0</td>
+              <td>8.0</td>
+              <td>14.0</td>
+            </tr>
+            <tr>
+              <td>19.0</td>
+              <td>18.0</td>
+              <td>25.0</td>
+              <td>16.0</td>
+              <td>24.0</td>
+            </tr>
+            <tr>
+              <td>15.0</td>
+              <td>1.0</td>
+              <td>15.0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li>Body fats of Women</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>22.0</td>
+              <td>16.0</td>
+              <td>21.7</td>
+              <td>21.0</td>
+              <td>30.0</td>
+            </tr>
+            <tr>
+              <td>26.0</td>
+              <td>12.0</td>
+              <td>23.2</td>
+              <td>28.0</td>
+              <td>23.0</td>
+            </tr>
+          </tbody>
+        </table>
       </li>
       <li>
         <p><u>2) Check assumptions<u></u></u></p>
+
+        <ul>
+          <li>Normality</li>
+          <li>Homogeneity of variance</li>
+        </ul>
       </li>
-      <li>
-        <p><u>3) Hypotheses<u></u></u></p>
+      <li><u>3) Hypotheses<u>
+</u></u>        <ul>
+          <li>
+            <p>H<sub>0</sub>:</p>
+          </li>
+          <li>
+            <p>H<sub>1</sub>:</p>
+          </li>
+        </ul>
       </li>
-      <li>
-        <p><u>4) Results &amp; Interpretation<u></u></u></p>
+      <li><u>4) Results &amp; Interpretation<u>
+</u></u>        <ul>
+          <li>Normality</li>
+          <li>
+            <p>shaprio.test:</p>
+          </li>
+          <li>Homogeneity of variance
+            <ul>
+              <li>Levene Test:</li>
+              <li>Boxplot:</li>
+            </ul>
+          </li>
+        </ul>
       </li>
       <li>
         <p><u>5) R code &amp; results<u></u></u></p>
+
+        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
+  </span><span class="n">men</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">13.3</span><span class="p">,</span><span class="w">    </span><span class="m">6.0</span><span class="p">,</span><span class="w">    </span><span class="m">20.0</span><span class="p">,</span><span class="w">    </span><span class="m">8.0</span><span class="p">,</span><span class="w"> </span><span class="m">14.0</span><span class="p">,</span><span class="w"> </span><span class="m">19.0</span><span class="p">,</span><span class="w">    </span><span class="m">18.0</span><span class="p">,</span><span class="w">    </span><span class="m">25.0</span><span class="p">,</span><span class="w">    </span><span class="m">16.0</span><span class="p">,</span><span class="w">    </span><span class="m">24.0</span><span class="p">,</span><span class="w"> </span><span class="m">15.0</span><span class="p">,</span><span class="w">    </span><span class="m">1.0</span><span class="p">,</span><span class="w">    </span><span class="m">15.0</span><span class="p">)</span><span class="w">
+  </span><span class="n">women</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">22.0</span><span class="p">,</span><span class="w">    </span><span class="m">16.0</span><span class="p">,</span><span class="w">    </span><span class="m">21.7</span><span class="p">,</span><span class="w">    </span><span class="m">21.0</span><span class="p">,</span><span class="w">    </span><span class="m">30.0</span><span class="p">,</span><span class="w"> </span><span class="m">26.0</span><span class="p">,</span><span class="w">    </span><span class="m">12.0</span><span class="p">,</span><span class="w">    </span><span class="m">23.2</span><span class="p">,</span><span class="w">    </span><span class="m">28.0</span><span class="p">,</span><span class="w">    </span><span class="m">23.0</span><span class="p">)</span><span class="w">
+    
+  </span><span class="c1"># 2-1. Normality check  </span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">men</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">women</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+</span></code></pre></div>        </div>
       </li>
     </ul>
   </li>
 </ul>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_shapiro_q2.png" alt="twottest_shapiro_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 6. Shapiro.test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance cehck 
+    library(car)
+
+    group &lt;- c(rep("men", length(men)), rep("women", length(women))) 
+    values &lt;- c(men, women)
+
+    leveneTest(values ~ group) # levene test
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_levene_q2.png" alt="twottest_levene_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 7. Levene Test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
+    boxplot(men, women,
+        names = c("men", "women"),
+        main = "Comparison of Two Groups",
+        ylab = "Values",
+        col = c("skyblue", "pink")) # boxplot
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_boxplot_q2.png" alt="twottest_boxplot_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 8. Boxplot</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Two sample t-test
+    ttest &lt;- t.test(men, women, var.equal = TRUE)
+    ttest # Two sample t-test
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_q2.png" alt="twottest_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 9. Two sample t-test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Critical t-value
+    qt(p=.05/2, df=ttest$parameter, lower.tail=FALSE) # critical t-value
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_criticalTvalue_q2.png" alt="twottest_criticalTvalue_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 10. Critical t-value</figcaption>
+</figure>
 
 <h3 id="references">References</h3>
 <ul>

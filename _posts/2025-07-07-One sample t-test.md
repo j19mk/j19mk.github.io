@@ -41,7 +41,7 @@ $$ {\text{Left tailed test}} \quad H_1: \mu > \mu_0 $$
 
 $$ {\text{Right tailed test}} \quad H_1: \mu < \mu_0 $$
 
-{% include aligner.html images="pexels/onetail.png" column=1 caption="Figure 1. Comparison between two tailed test and one tailed test" %}
+{% include aligner.html images="pexels/onettest/onetail.png" column=1 caption="Figure 1. Comparison between two tailed test and one tailed test" %}
 
 <br>
 #### 3. Test results
@@ -109,7 +109,7 @@ $$ df = n-1 $$
         hist(dataset) # histogram
         ```
         
-        {% include aligner.html images="pexels/onettest_histogram_q1.png" column=1 caption="Figure 2. histogram of dataset" %}
+        {% include aligner.html images="pexels/onettest/onettest_histogram_q1.png" column=1 caption="Figure 2. histogram of dataset" %}
        
         
         # 2. Normality check
@@ -117,13 +117,13 @@ $$ df = n-1 $$
         qqline(dataset, col = "steelblue") # Q-Q plot
         
         
-        {% include aligner.html images="pexels/onettest_qqplot_q1.png" column=1 caption="Figure 3. Q-Q plot" %}
+        {% include aligner.html images="pexels/onettest/onettest_qqplot_q1.png" column=1 caption="Figure 3. Q-Q plot" %}
         
                
         # 2. Normality check
         shapiro.test(dataset) # shariro.test
         
-        {% include aligner.html images="pexels/onettest_shapiro_q1.png" caption="Figure 4. shapiro.test" %}
+        {% include aligner.html images="pexels/onettest/onettest_shapiro_q1.png" caption="Figure 4. shapiro.test" %}
         
         
         # 3. Student's t-test
@@ -131,13 +131,12 @@ $$ df = n-1 $$
         
         t.test(dataset, mu = pop_mean)
 
-        {% include aligner.html images="pexels/onettest_q1.png" caption="Figure 5. Student's t-test" %}
+        {% include aligner.html images="pexels/onettest/onettest_q1.png" caption="Figure 5. Student's t-test" %}
         
         # 4. Critical t-value
-        
         qt(p=.05/2, df=11, lower.tail=FALSE) # critical t-value
 
-        {% include aligner.html images="pexels/onettest_criticalTValue_q1.png" caption="Figure 6. Critical t-value with df 11" %}
+        {% include aligner.html images="pexels/onettest/onettest_criticalTValue_q1.png" caption="Figure 6. Critical t-value with df 11" %}
 
         
         
@@ -184,33 +183,33 @@ $$ df = n-1 $$
         # 2. Normality check
         hist(dataset) # histogram
         ```
-        {% include aligner.html images="pexels/onettest_histogram_q2.png" column=1 caption="Figure 7. histogram of dataset" %}
+        {% include aligner.html images="pexels/onettest/onettest_histogram_q2.png" column=1 caption="Figure 7. histogram of dataset" %}
 
         
         # 2. Normality check        
         qqnorm(dataset)
         qqline(dataset, col = "steelblue") # Q-Q plot
         
-        {% include aligner.html images="pexels/onettest_qqplot_q2.png" column=1 caption="Figure 8. Q-Q plot" %}
+        {% include aligner.html images="pexels/onettest/onettest_qqplot_q2.png" column=1 caption="Figure 8. Q-Q plot" %}
                 
         # 2. Normality check  
         shapiro.test(dataset) # shariro.test
 
-        {% include aligner.html images="pexels/onettest_shapiro_q2.png" caption="Figure 9. shapiro.test" %}
+        {% include aligner.html images="pexels/onettest/onettest_shapiro_q2.png" caption="Figure 9. shapiro.test" %}
         
         # 3. Student's t-test
         protein <- 20 # labeled amount protein amount
 
         t.test(dataset, mu = protein)
         
-        {% include aligner.html images="pexels/onettest_q2.png" caption="Figure 10. Student's t-test" %}
+        {% include aligner.html images="pexels/onettest/onettest_q2.png" caption="Figure 10. Student's t-test" %}
 
 
         # 4. Critical t-value
         
         qt(p=.05/2, df=22, lower.tail=FALSE) # critical t-value
         
-        {% include aligner.html images="pexels/onettest_criticalTValue_q2.png" caption="Figure 11. Critical t-value with df 30" %}
+        {% include aligner.html images="pexels/onettest/onettest_criticalTValue_q2.png" caption="Figure 11. Critical t-value with df 30" %}
     
     
 <br>
