@@ -1,4 +1,583 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-09T09:40:01+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jane</title><subtitle>Jane&apos;s portfolio</subtitle><entry><title type="html">One sample t-test</title><link href="http://localhost:4000/2025/07/07/One-sample-t-test.html" rel="alternate" type="text/html" title="One sample t-test" /><published>2025-07-07T00:00:00+10:00</published><updated>2025-07-07T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/07/One%20sample%20t-test</id><content type="html" xml:base="http://localhost:4000/2025/07/07/One-sample-t-test.html"><![CDATA[<h3 id="one-sample-t-test-students-t-test">One sample t-test (Student’s t-test)</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-10T14:05:21+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jane</title><subtitle>Jane&apos;s portfolio</subtitle><entry><title type="html">Two sample t-test</title><link href="http://localhost:4000/2025/07/10/Two-sample-t-test.html" rel="alternate" type="text/html" title="Two sample t-test" /><published>2025-07-10T00:00:00+10:00</published><updated>2025-07-10T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/10/Two%20sample%20t-test</id><content type="html" xml:base="http://localhost:4000/2025/07/10/Two-sample-t-test.html"><![CDATA[<h3 id="independent-samples-t-test">Independent samples t-test</h3>
+<blockquote>
+  <p>A test to determine whether there is a significant difference between <strong>the mean of two different groups</strong>
+<!--more--></p>
+</blockquote>
+
+<p><br /></p>
+<h4 id="1-assumptions">1. Assumptions</h4>
+<ul>
+  <li>The data have been ramdomly sampled from population</li>
+  <li>The data in each group is normally distributed</li>
+  <li>The two groups are independent</li>
+  <li>There is homogeneity of variance (equal variances between the two groups)</li>
+</ul>
+
+<p><br /></p>
+<h4 id="2-hypotheses">2. Hypotheses</h4>
+
+<p><u>Two tailed (non-directional)<u></u></u></p>
+<ul>
+  <li>Null hypothesis (H<sub>0</sub>):</li>
+</ul>
+
+\[H_0: \mu = \mu_0\]
+
+<ul>
+  <li>Alternative hypotehsis (H<sub>1</sub>):</li>
+</ul>
+
+\[H_1: \mu \ne \mu_0\]
+
+<p><u>One tailed (Directional)<u></u></u></p>
+<ul>
+  <li>Null hypothesis (H<sub>0</sub>): The mean of group 1 is greater / less than or equal to the mean of group 2</li>
+</ul>
+
+\[{\text{Left tailed test}} \quad H_0: \mu_1 \ge \mu_2\]
+
+\[{\text{Right tailed test}} \quad H_0: \mu_1 \le \mu_2\]
+
+<ul>
+  <li>Alternative hypotehsis (H<sub>1</sub>): The mean of group 1 is less / greater than the mean of group 2</li>
+</ul>
+
+\[{\text{Left tailed test}} \quad H_1: \mu_1 &lt; \mu_2\]
+
+\[{\text{Right tailed test}} \quad H_1: \mu_1 &gt; \mu_2\]
+
+<p><br /></p>
+<h4 id="3-test-results">3. Test results</h4>
+<ul>
+  <li>t-value or t-statistics</li>
+</ul>
+
+\[t = \frac{\text{Difference of group averages}}{\text{Standard error of difference}} = \frac{\bar{x_1} - \bar{x_2}}{s_{\bar{x}_1 - \bar{x}_2}}\]
+
+<ul>
+  <li>degree of freedom (df)</li>
+</ul>
+
+\[df = n_1 + n_2 - 2\]
+
+<ul>
+  <li>Effect size (Conhen’s <em>d</em>)</li>
+</ul>
+
+\[d = t \times \sqrt{\frac{n_1 + n_2}{n_1 \cdot n_2}}\]
+
+<ul>
+  <li>p-value</li>
+</ul>
+
+<p><br /></p>
+<h4 id="4-how-to-interpret-with-the-test-results">4. How to interpret with the test results</h4>
+
+<ul>
+  <li>t-value
+    <ul>
+      <li>t-value &gt; critical t-value = reject H<sub>0</sub></li>
+    </ul>
+  </li>
+  <li>p-value
+    <ul>
+      <li>p-value \(&lt; \alpha\) (significant level) = reject H<sub>0</sub></li>
+      <li>p-value \(\ge \alpha\) (significant level) = fail to reject H<sub>0</sub></li>
+    </ul>
+  </li>
+  <li>Effective size (Conhen’s <em>d</em>)
+    <ul>
+      <li>~ 0.2: small effect, but noticeable difference</li>
+      <li>~ 0.5: medium effect, likely meaningful difference</li>
+      <li>~ 0.8: large effect, very meaningful difference</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+<h4 id="5-examples">5. Examples</h4>
+<ul>
+  <li><strong>Q1. Is there a significant difference between the examination results in the summer and winter semester?</strong>
+    <ul>
+      <li><u>1) Dataset<u>
+</u></u>        <ul>
+          <li>Summer semester</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>52</td>
+              <td>61</td>
+              <td>40</td>
+              <td>46</td>
+              <td>50</td>
+              <td>56</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>44</td>
+              <td>47</td>
+              <td>70</td>
+              <td>40</td>
+              <td>65</td>
+              <td>38</td>
+              <td>68</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li>Winter semester</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>53</td>
+              <td>71</td>
+              <td>38</td>
+              <td>34</td>
+              <td>68</td>
+              <td>68</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>41</td>
+              <td>38</td>
+              <td>23</td>
+              <td>28</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li><u>2) Check assumptions<u>
+</u></u>        <ul>
+          <li>Normality</li>
+          <li>Homogeneity of variance</li>
+        </ul>
+      </li>
+      <li><u>3) Hypotheses<u>
+</u></u>        <ul>
+          <li>
+            <p>H<sub>0</sub>: There is no significant difference in examination results between the summer and winter semesters.</p>
+          </li>
+          <li>
+            <p>H<sub>1</sub>: There is significant difference in examination results between the summer and winter semesters.</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><u>4) Results &amp; Interpretation<u></u></u></p>
+
+        <ul>
+          <li>Normality
+            <ul>
+              <li>shaprio.test: As both p-values are greater than 0.05, H<sub>0</sub> which states that the data come from a normal distribution, is not rejected.</li>
+            </ul>
+          </li>
+          <li>Homogeneity of variance
+            <ul>
+              <li>Boxplot: The data distribution for winter is slightly more spread out compared to that for summer, and both distributions are slightly right-skewed.</li>
+              <li>Levene Test: The p-value is 0.2494, which is greater than 0.05, indicating that the two groups have homogeneity of variance.</li>
+            </ul>
+          </li>
+          <li>
+            <p>t-value: The t-value is 1.0352, which is smaller than the critical t-value (2.073873), indicating that H<sub>0</sub> is unlikely to be rejected.</p>
+          </li>
+          <li>p-value: The p-value (0.3118) is much greater than 0.05, leading to the conclusion that H<sub>0</sub> is not rejected.</li>
+        </ul>
+      </li>
+      <li>
+        <p><u>5) Conclusion<u></u></u></p>
+
+        <ul>
+          <li>To determine the difference examination results between the summer and winter semester, the independent samples t-test was conducted. There was no significant difference in examination results between the summer(mean = 52.08, sd = 11.03) and winter (mean = 46.18, sd = 16.71) semesters; t(22) = 1.0352, p-value = 0.3118(two-tailed). The difference in means (mean difference = 5.90, 95% CI = [-5.914, 17.705] was small, with a Cohen’s d of 0.42</li>
+        </ul>
+      </li>
+      <li><u>6) R code &amp; results<u>
+</u></u>        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
+  </span><span class="n">summer</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">61</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">46</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="m">56</span><span class="p">,</span><span class="w"> </span><span class="m">44</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">70</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">65</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">)</span><span class="w">
+  </span><span class="n">winter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">53</span><span class="p">,</span><span class="w"> </span><span class="m">71</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">34</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">46</span><span class="p">,</span><span class="w"> </span><span class="m">41</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="m">28</span><span class="p">)</span><span class="w">
+      
+  </span><span class="c1"># 2-1. Normality check  </span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">summer</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">winter</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_shapiro_q1.png" alt="twottest_shapiro_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 1. Shapiro.test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check
+    boxplot(summer, winter,
+            names = c("summer", "winter"),
+            main = "Comparison of Two Groups",
+            ylab = "Values",
+            col = c("skyblue", "pink")) # boxplot
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_boxplot_q1.png" alt="twottest_boxplot_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 2. Boxplot</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
+    library(car)
+
+    group &lt;- c(rep("summer", length(summer)), rep("winter", length(winter))) 
+    values &lt;- c(summer, winter)
+
+    leveneTest(values ~ group) # levene test
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_levene_q1.png" alt="twottest_levene_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 3. Levene Test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Group statistics
+    stat &lt;- function(x) {
+    n &lt;- length(x) 
+    m &lt;- mean(x)
+    s &lt;- sd(x)
+    
+    cat("n:", n, "\n")
+    cat("mean:", m, "\n")
+    cat("sd:", s, "\n")
+  
+    return(invisible(list(n = n, mean = m, sd = s)))
+    }
+
+    stat(summer)  
+    stat(winter)    
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_stat_q1.png" alt="twottest_stat_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 4. Statistics for two groups</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Two sample t-test
+    ttest &lt;- t.test(summer, winter, var.equal = TRUE)
+    ttest
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_q1.png" alt="twottest_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 5. Two sample t-test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 5. Critical t-value
+    qt(p=.05/2, df=ttest$parameter, lower.tail=FALSE) # critical t-value
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_criticalTvalue_q1.png" alt="twottest_criticalTvalue_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 6. Critical t-value</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 6. Effect size
+    install.packages("effsize")
+    library(effsize)
+
+    cohen.d(summer, winter)
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_effectsize_q1.png" alt="twottest_effectsize_q1.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 7. Critical t-value</figcaption>
+</figure>
+
+<p><br /></p>
+<ul>
+  <li><strong>Q2. Is there a significant difference between the body fats in men and women?</strong>
+    <ul>
+      <li><u>1) Dataset<u>
+</u></u>        <ul>
+          <li>Body fats of Men</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>13.3</td>
+              <td>6.0</td>
+              <td>20.0</td>
+              <td>8.0</td>
+              <td>14.0</td>
+            </tr>
+            <tr>
+              <td>19.0</td>
+              <td>18.0</td>
+              <td>25.0</td>
+              <td>16.0</td>
+              <td>24.0</td>
+            </tr>
+            <tr>
+              <td>15.0</td>
+              <td>1.0</td>
+              <td>15.0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li>Body fats of Women</li>
+        </ul>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>22.0</td>
+              <td>16.0</td>
+              <td>21.7</td>
+              <td>21.0</td>
+              <td>30.0</td>
+            </tr>
+            <tr>
+              <td>26.0</td>
+              <td>12.0</td>
+              <td>23.2</td>
+              <td>28.0</td>
+              <td>23.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <p><u>2) Check assumptions<u></u></u></p>
+
+        <ul>
+          <li>Normality</li>
+          <li>Homogeneity of variance</li>
+        </ul>
+      </li>
+      <li><u>3) Hypotheses<u>
+</u></u>        <ul>
+          <li>
+            <p>H<sub>0</sub>: There is no significant difference between the body fats in men and women.</p>
+          </li>
+          <li>
+            <p>H<sub>1</sub>: There is significant difference between the body fats in men and women.</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><u>4) Results &amp; Interpretation<u></u></u></p>
+
+        <ul>
+          <li>Normality
+            <ul>
+              <li>shaprio.test: As both p-values are greater than 0.05, H<sub>0</sub> which states that the data come from a normal distribution, is not rejected.</li>
+            </ul>
+          </li>
+          <li>Homogeneity of variance
+            <ul>
+              <li>Boxplot: The data distribution for men is slightly more spread out compared to that for women, and both distributions are slightly right-skewed. Each group has one outlier.</li>
+              <li>Levene Test: The p-value is 0.4855, which is greater than 0.05, indicating that the two groups have homogeneity of variance.</li>
+            </ul>
+          </li>
+          <li>
+            <p>t-value: The t-value is -2.8, which is smaller than the critical t-value (2.0796), indicating that H<sub>0</sub> is likely to be rejected.</p>
+          </li>
+          <li>p-value: The p-value (0.01073) is much smaller than 0.05, leading to the conclusion that H<sub>0</sub> is rejected.</li>
+        </ul>
+      </li>
+      <li><u>5) Conclusion<u>
+</u></u>        <ul>
+          <li>The two samples t-test was performed to determine that there is significantly diffference between the body fats in men and women. There was significantly difference the body fats between in men (m = 14.94615, sd = 6.8426) and women (m = 22.29, sd = 5.3197); t(21) = -2.8, p-value = 0.01073.  The difference in means (mean difference = 7.34, 95% CI = [-12.798, -1.889] was large, with a Cohen’s d of -1.178.</li>
+        </ul>
+      </li>
+      <li>
+        <p><u>6) R code &amp; results<u></u></u></p>
+
+        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
+  </span><span class="n">men</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">13.3</span><span class="p">,</span><span class="w">    </span><span class="m">6.0</span><span class="p">,</span><span class="w">    </span><span class="m">20.0</span><span class="p">,</span><span class="w">    </span><span class="m">8.0</span><span class="p">,</span><span class="w"> </span><span class="m">14.0</span><span class="p">,</span><span class="w"> </span><span class="m">19.0</span><span class="p">,</span><span class="w">    </span><span class="m">18.0</span><span class="p">,</span><span class="w">    </span><span class="m">25.0</span><span class="p">,</span><span class="w">    </span><span class="m">16.0</span><span class="p">,</span><span class="w">    </span><span class="m">24.0</span><span class="p">,</span><span class="w"> </span><span class="m">15.0</span><span class="p">,</span><span class="w">    </span><span class="m">1.0</span><span class="p">,</span><span class="w">    </span><span class="m">15.0</span><span class="p">)</span><span class="w">
+  </span><span class="n">women</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">22.0</span><span class="p">,</span><span class="w">    </span><span class="m">16.0</span><span class="p">,</span><span class="w">    </span><span class="m">21.7</span><span class="p">,</span><span class="w">    </span><span class="m">21.0</span><span class="p">,</span><span class="w">    </span><span class="m">30.0</span><span class="p">,</span><span class="w"> </span><span class="m">26.0</span><span class="p">,</span><span class="w">    </span><span class="m">12.0</span><span class="p">,</span><span class="w">    </span><span class="m">23.2</span><span class="p">,</span><span class="w">    </span><span class="m">28.0</span><span class="p">,</span><span class="w">    </span><span class="m">23.0</span><span class="p">)</span><span class="w">
+    
+  </span><span class="c1"># 2-1. Normality check  </span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">men</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">women</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_shapiro_q2.png" alt="twottest_shapiro_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 8. Shapiro.test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
+    boxplot(men, women,
+        names = c("men", "women"),
+        main = "Comparison of Two Groups",
+        ylab = "Values",
+        col = c("skyblue", "pink")) # boxplot
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_boxplot_q2.png" alt="twottest_boxplot_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 9. Boxplot</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance cehck 
+    library(car)
+
+    group &lt;- c(rep("men", length(men)), rep("women", length(women))) 
+    values &lt;- c(men, women)
+
+    leveneTest(values ~ group) # levene test
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_levene_q2.png" alt="twottest_levene_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 10. Levene Test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Group statistics
+    stat &lt;- function(x) {
+    n &lt;- length(x) 
+    m &lt;- mean(x)
+    s &lt;- sd(x)
+    
+    cat("n:", n, "\n")
+    cat("mean:", m, "\n")
+    cat("sd:", s, "\n")
+  
+    return(invisible(list(n = n, mean = m, sd = s)))
+    }
+
+    stat(men)  
+    stat(women)
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_stat_q2.png" alt="twottest_stat_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 11. Statistics for two groups</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Two sample t-test
+    ttest &lt;- t.test(men, women, var.equal = TRUE)
+    ttest # Two sample t-test
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_q2.png" alt="twottest_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 12. Two sample t-test</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Critical t-value
+    qt(p=.05/2, df=ttest$parameter, lower.tail=FALSE) # critical t-value
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_criticalTvalue_q2.png" alt="twottest_criticalTvalue_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 13. Critical t-value</figcaption>
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 6. Effect size
+    install.packages("effsize")
+    library(effsize)
+
+    cohen.d(summer, winter)  
+</code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/twottest/twottest_effectsize_q2.png" alt="twottest_effectsize_q2.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 14. Critical t-value</figcaption>
+</figure>
+
+<h3 id="references">References</h3>
+<ul>
+  <li>Staistical units from <a href="https://www.mq.edu.au/" target="_blank">Macquarie University</a></li>
+  <li><a href="https://chatgpt.com/" target="_blank">Chatgpt</a></li>
+  <li><a href="https://datatab.net/tutorial/unpaired-t-test" target="_blank">DATAtab</a></li>
+  <li><a href="https://www.jmp.com/en/statistics-knowledge-portal/t-test/two-sample-t-test" target="_blank">jmp.STATISTICAL DISCOVERY</a></li>
+  <li><a href="https://www.geeksforgeeks.org/r-language/two-sample-t-test-in-r/" target="_blank">GeeksforGeeks</a></li>
+</ul>]]></content><author><name></name></author><category term="Statistics" /><summary type="html"><![CDATA[Independent samples t-test A test to determine whether there is a significant difference between the mean of two different groups]]></summary></entry><entry><title type="html">One sample t-test</title><link href="http://localhost:4000/2025/07/07/One-sample-t-test.html" rel="alternate" type="text/html" title="One sample t-test" /><published>2025-07-07T00:00:00+10:00</published><updated>2025-07-07T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/07/One%20sample%20t-test</id><content type="html" xml:base="http://localhost:4000/2025/07/07/One-sample-t-test.html"><![CDATA[<h3 id="one-sample-t-test-students-t-test">One sample t-test (Student’s t-test)</h3>
 <blockquote>
   <p>A test to determine whether there is a significant difference between <strong>the mean of a population</strong> and <strong>the mean of a single sample</strong>
 <!--more--></p>
@@ -432,474 +1011,7 @@
   <li><a href="https://datatab.net/tutorial/t-test" target="_blank">DATAtab</a></li>
   <li><a href="https://www.jmp.com/en/statistics-knowledge-portal/t-test" target="_blank">jmp.STATISTICAL DISCOVERY</a></li>
   <li><a href="https://arshren.medium.com/hypothesis-testing-an-intuitive-explanation-898d547db38d" target="_blank">Figure 1</a></li>
-</ul>]]></content><author><name></name></author><category term="Statistics" /><summary type="html"><![CDATA[One sample t-test (Student’s t-test) A test to determine whether there is a significant difference between the mean of a population and the mean of a single sample]]></summary></entry><entry><title type="html">Two sample t-test</title><link href="http://localhost:4000/2025/07/02/Two-sample-t-test.html" rel="alternate" type="text/html" title="Two sample t-test" /><published>2025-07-02T00:00:00+10:00</published><updated>2025-07-02T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/02/Two%20sample%20t-test</id><content type="html" xml:base="http://localhost:4000/2025/07/02/Two-sample-t-test.html"><![CDATA[<h3 id="independent-samples-t-test">Independent samples t-test</h3>
-<blockquote>
-  <p>A test to determine whether there is a significant difference between <strong>the mean of two different groups</strong>
-<!--more--></p>
-</blockquote>
-
-<p><br /></p>
-<h4 id="1-assumptions">1. Assumptions</h4>
-<ul>
-  <li>The data have been ramdomly sampled from population</li>
-  <li>The data in each group is normally distributed</li>
-  <li>The two groups are independent</li>
-  <li>There is homogeneity of variance (equal variances between the two groups)</li>
-</ul>
-
-<p><br /></p>
-<h4 id="2-hypotheses">2. Hypotheses</h4>
-
-<p><u>Two tailed (non-directional)<u></u></u></p>
-<ul>
-  <li>Null hypothesis (H<sub>0</sub>):</li>
-</ul>
-
-\[H_0: \mu = \mu_0\]
-
-<ul>
-  <li>Alternative hypotehsis (H<sub>1</sub>):</li>
-</ul>
-
-\[H_1: \mu \ne \mu_0\]
-
-<p><u>One tailed (Directional)<u></u></u></p>
-<ul>
-  <li>Null hypothesis (H<sub>0</sub>): The mean of group 1 is greater / less than or equal to the mean of group 2</li>
-</ul>
-
-\[{\text{Left tailed test}} \quad H_0: \mu_1 \ge \mu_2\]
-
-\[{\text{Right tailed test}} \quad H_0: \mu_1 \le \mu_2\]
-
-<ul>
-  <li>Alternative hypotehsis (H<sub>1</sub>): The mean of group 1 is less / greater than the mean of group 2</li>
-</ul>
-
-\[{\text{Left tailed test}} \quad H_1: \mu_1 &lt; \mu_2\]
-
-\[{\text{Right tailed test}} \quad H_1: \mu_1 &gt; \mu_2\]
-
-<p><br /></p>
-<h4 id="3-test-results">3. Test results</h4>
-<ul>
-  <li>t-value or t-statistics</li>
-</ul>
-
-\[t = \frac{\text{Difference of group averages}}{\text{Standard error of difference}} = \frac{\bar{x_1} - \bar{x_2}}{s_{\bar{x}_1 - \bar{x}_2}}\]
-
-<ul>
-  <li>degree of freedom (df)</li>
-</ul>
-
-\[df = n_1 + n_2 - 2\]
-
-<ul>
-  <li>Effect size (Conhen’s <em>d</em>)</li>
-</ul>
-
-\[d = t \times \sqrt{\frac{n_1 + n_2}{n_1 \cdot n_2}}\]
-
-<ul>
-  <li>p-value</li>
-</ul>
-
-<p><br /></p>
-<h4 id="4-how-to-interpret-with-the-test-results">4. How to interpret with the test results</h4>
-
-<ul>
-  <li>t-value
-    <ul>
-      <li>t-value &gt; critical t-value = reject H<sub>0</sub></li>
-    </ul>
-  </li>
-  <li>p-value
-    <ul>
-      <li>p-value \(&lt; \alpha\) (significant level) = reject H<sub>0</sub></li>
-      <li>p-value \(\ge \alpha\) (significant level) = fail to reject H<sub>0</sub></li>
-    </ul>
-  </li>
-  <li>Effective size (Conhen’s <em>d</em>)
-    <ul>
-      <li>~ 0.2: small effect, but noticeable difference</li>
-      <li>~ 0.5: medium effect, likely meaningful difference</li>
-      <li>~ 0.8: large effect, very meaningful difference</li>
-    </ul>
-  </li>
-</ul>
-
-<p><br /></p>
-<h4 id="5-examples">5. Examples</h4>
-<ul>
-  <li><strong>Q1. Is there a significant difference between the examination results in the summer and winter semester?</strong>
-    <ul>
-      <li><u>1) Dataset<u>
-</u></u>        <ul>
-          <li>Summer semester</li>
-        </ul>
-
-        <table>
-          <tbody>
-            <tr>
-              <td>52</td>
-              <td>61</td>
-              <td>40</td>
-              <td>46</td>
-              <td>50</td>
-              <td>56</td>
-              <td> </td>
-            </tr>
-            <tr>
-              <td>44</td>
-              <td>47</td>
-              <td>70</td>
-              <td>40</td>
-              <td>65</td>
-              <td>38</td>
-              <td>68</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <ul>
-          <li>Winter semester</li>
-        </ul>
-
-        <table>
-          <tbody>
-            <tr>
-              <td>53</td>
-              <td>71</td>
-              <td>38</td>
-              <td>34</td>
-              <td>68</td>
-              <td>68</td>
-              <td> </td>
-            </tr>
-            <tr>
-              <td>46</td>
-              <td>41</td>
-              <td>38</td>
-              <td>23</td>
-              <td>28</td>
-              <td> </td>
-              <td> </td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
-      <li><u>2) Check assumptions<u>
-</u></u>        <ul>
-          <li>Normality</li>
-          <li>Homogeneity of variance</li>
-        </ul>
-      </li>
-      <li><u>3) Hypotheses<u>
-</u></u>        <ul>
-          <li>
-            <p>H<sub>0</sub>:</p>
-          </li>
-          <li>
-            <p>H<sub>1</sub>:</p>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <p><u>4) Results &amp; Interpretation<u></u></u></p>
-
-        <ul>
-          <li>Normality
-            <ul>
-              <li>shaprio.test:</li>
-            </ul>
-          </li>
-          <li>Homogeneity of variance
-            <ul>
-              <li>Levene Test:</li>
-              <li>Boxplot</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><u>5) R code &amp; results<u>
-</u></u>        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
-  </span><span class="n">summer</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">61</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">46</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="m">56</span><span class="p">,</span><span class="w"> </span><span class="m">44</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">70</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">65</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">)</span><span class="w">
-  </span><span class="n">winter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">53</span><span class="p">,</span><span class="w"> </span><span class="m">71</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">34</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">46</span><span class="p">,</span><span class="w"> </span><span class="m">41</span><span class="p">,</span><span class="w"> </span><span class="m">38</span><span class="p">,</span><span class="w"> </span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="m">28</span><span class="p">)</span><span class="w">
-      
-  </span><span class="c1"># 2-1. Normality check  </span><span class="w">
-  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">summer</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
-  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">winter</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
-</span></code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_shapiro_q1.png" alt="twottest_shapiro_q1.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 1. Shapiro.test</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
-    library(car)
-
-    group &lt;- c(rep("summer", length(summer)), rep("winter", length(winter))) 
-    values &lt;- c(summer, winter)
-
-    leveneTest(values ~ group) # levene test
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_levene_q1.png" alt="twottest_levene_q1.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 2. Levene Test</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
-    boxplot(summer, winter,
-            names = c("summer", "winter"),
-            main = "Comparison of Two Groups",
-            ylab = "Values",
-            col = c("skyblue", "pink")) # boxplot
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_boxplot_q1.png" alt="twottest_boxplot_q1.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 3. Boxplot</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Two sample t-test
-    ttest &lt;- t.test(summer, winter, var.equal = TRUE)
-    ttest
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_q1.png" alt="twottest_q1.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 4. Two sample t-test</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Critical t-value
-    qt(p=.05/2, df=ttest$parameter, lower.tail=FALSE) # critical t-value
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_criticalTvalue_q1.png" alt="twottest_criticalTvalue_q1.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 5. Critical t-value</figcaption>
-</figure>
-
-<p><br /></p>
-<ul>
-  <li><strong>Q2. Is there a significant difference between the body fats in men and women?</strong>
-    <ul>
-      <li><u>1) Dataset<u>
-</u></u>        <ul>
-          <li>Body fats of Men</li>
-        </ul>
-
-        <table>
-          <tbody>
-            <tr>
-              <td>13.3</td>
-              <td>6.0</td>
-              <td>20.0</td>
-              <td>8.0</td>
-              <td>14.0</td>
-            </tr>
-            <tr>
-              <td>19.0</td>
-              <td>18.0</td>
-              <td>25.0</td>
-              <td>16.0</td>
-              <td>24.0</td>
-            </tr>
-            <tr>
-              <td>15.0</td>
-              <td>1.0</td>
-              <td>15.0</td>
-              <td> </td>
-              <td> </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <ul>
-          <li>Body fats of Women</li>
-        </ul>
-
-        <table>
-          <tbody>
-            <tr>
-              <td>22.0</td>
-              <td>16.0</td>
-              <td>21.7</td>
-              <td>21.0</td>
-              <td>30.0</td>
-            </tr>
-            <tr>
-              <td>26.0</td>
-              <td>12.0</td>
-              <td>23.2</td>
-              <td>28.0</td>
-              <td>23.0</td>
-            </tr>
-          </tbody>
-        </table>
-      </li>
-      <li>
-        <p><u>2) Check assumptions<u></u></u></p>
-
-        <ul>
-          <li>Normality</li>
-          <li>Homogeneity of variance</li>
-        </ul>
-      </li>
-      <li><u>3) Hypotheses<u>
-</u></u>        <ul>
-          <li>
-            <p>H<sub>0</sub>:</p>
-          </li>
-          <li>
-            <p>H<sub>1</sub>:</p>
-          </li>
-        </ul>
-      </li>
-      <li><u>4) Results &amp; Interpretation<u>
-</u></u>        <ul>
-          <li>Normality</li>
-          <li>
-            <p>shaprio.test:</p>
-          </li>
-          <li>Homogeneity of variance
-            <ul>
-              <li>Levene Test:</li>
-              <li>Boxplot:</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <p><u>5) R code &amp; results<u></u></u></p>
-
-        <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># 1. Dataset</span><span class="w">
-  </span><span class="n">men</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">13.3</span><span class="p">,</span><span class="w">    </span><span class="m">6.0</span><span class="p">,</span><span class="w">    </span><span class="m">20.0</span><span class="p">,</span><span class="w">    </span><span class="m">8.0</span><span class="p">,</span><span class="w"> </span><span class="m">14.0</span><span class="p">,</span><span class="w"> </span><span class="m">19.0</span><span class="p">,</span><span class="w">    </span><span class="m">18.0</span><span class="p">,</span><span class="w">    </span><span class="m">25.0</span><span class="p">,</span><span class="w">    </span><span class="m">16.0</span><span class="p">,</span><span class="w">    </span><span class="m">24.0</span><span class="p">,</span><span class="w"> </span><span class="m">15.0</span><span class="p">,</span><span class="w">    </span><span class="m">1.0</span><span class="p">,</span><span class="w">    </span><span class="m">15.0</span><span class="p">)</span><span class="w">
-  </span><span class="n">women</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">22.0</span><span class="p">,</span><span class="w">    </span><span class="m">16.0</span><span class="p">,</span><span class="w">    </span><span class="m">21.7</span><span class="p">,</span><span class="w">    </span><span class="m">21.0</span><span class="p">,</span><span class="w">    </span><span class="m">30.0</span><span class="p">,</span><span class="w"> </span><span class="m">26.0</span><span class="p">,</span><span class="w">    </span><span class="m">12.0</span><span class="p">,</span><span class="w">    </span><span class="m">23.2</span><span class="p">,</span><span class="w">    </span><span class="m">28.0</span><span class="p">,</span><span class="w">    </span><span class="m">23.0</span><span class="p">)</span><span class="w">
-    
-  </span><span class="c1"># 2-1. Normality check  </span><span class="w">
-  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">men</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
-  </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">women</span><span class="p">)</span><span class="w"> </span><span class="c1"># shariro.test</span><span class="w">
-</span></code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_shapiro_q2.png" alt="twottest_shapiro_q2.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 6. Shapiro.test</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance cehck 
-    library(car)
-
-    group &lt;- c(rep("men", length(men)), rep("women", length(women))) 
-    values &lt;- c(men, women)
-
-    leveneTest(values ~ group) # levene test
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_levene_q2.png" alt="twottest_levene_q2.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 7. Levene Test</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 2-2. homogeneity of variance check 
-    boxplot(men, women,
-        names = c("men", "women"),
-        main = "Comparison of Two Groups",
-        ylab = "Values",
-        col = c("skyblue", "pink")) # boxplot
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_boxplot_q2.png" alt="twottest_boxplot_q2.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 8. Boxplot</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 3. Two sample t-test
-    ttest &lt;- t.test(men, women, var.equal = TRUE)
-    ttest # Two sample t-test
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_q2.png" alt="twottest_q2.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 9. Two sample t-test</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # 4. Critical t-value
-    qt(p=.05/2, df=ttest$parameter, lower.tail=FALSE) # critical t-value
-</code></pre></div></div>
-
-<figure class="row">
-    
-    <div class="column">
-        <img class="single" src="/assets/img/pexels/twottest/twottest_criticalTvalue_q2.png" alt="twottest_criticalTvalue_q2.png" />
-    </div>
-    
-    
-    <figcaption class="caption-style">Figure 10. Critical t-value</figcaption>
-</figure>
-
-<h3 id="references">References</h3>
-<ul>
-  <li>Staistical units from <a href="https://www.mq.edu.au/" target="_blank">Macquarie University</a></li>
-  <li><a href="https://chatgpt.com/" target="_blank">Chatgpt</a></li>
-  <li><a href="https://datatab.net/tutorial/t-test" target="_blank">DATAtab</a></li>
-  <li><a href="https://www.jmp.com/en/statistics-knowledge-portal/t-test" target="_blank">jmp.STATISTICAL DISCOVERY</a></li>
-</ul>]]></content><author><name></name></author><category term="Statistics" /><summary type="html"><![CDATA[Independent samples t-test A test to determine whether there is a significant difference between the mean of two different groups]]></summary></entry><entry><title type="html">Dark Mode</title><link href="http://localhost:4000/demo/2021/04/27/dark-mode.html" rel="alternate" type="text/html" title="Dark Mode" /><published>2021-04-27T00:00:00+10:00</published><updated>2021-04-27T00:00:00+10:00</updated><id>http://localhost:4000/demo/2021/04/27/dark-mode</id><content type="html" xml:base="http://localhost:4000/demo/2021/04/27/dark-mode.html"><![CDATA[<p>More colors with less light. Click the <strong>half-moon</strong> most top-right button to turn the lights ON/OFF.
+</ul>]]></content><author><name></name></author><category term="Statistics" /><summary type="html"><![CDATA[One sample t-test (Student’s t-test) A test to determine whether there is a significant difference between the mean of a population and the mean of a single sample]]></summary></entry><entry><title type="html">Dark Mode</title><link href="http://localhost:4000/demo/2021/04/27/dark-mode.html" rel="alternate" type="text/html" title="Dark Mode" /><published>2021-04-27T00:00:00+10:00</published><updated>2021-04-27T00:00:00+10:00</updated><id>http://localhost:4000/demo/2021/04/27/dark-mode</id><content type="html" xml:base="http://localhost:4000/demo/2021/04/27/dark-mode.html"><![CDATA[<p>More colors with less light. Click the <strong>half-moon</strong> most top-right button to turn the lights ON/OFF.
 Here is a bit of everything, so you can check how the theme look, have fun! 👌</p>
 
 <h1 id="headers">Headers</h1>
