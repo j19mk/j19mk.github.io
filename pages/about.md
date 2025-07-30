@@ -6,14 +6,22 @@ feature-img: "assets/img/pexels/sky.jpeg"
 tags: [Page]
 ---
 
-Hello All,
-Welcome to Jane's Portfolio webpage.
+Hello everyone,  
+Welcome to **Jane’s portfolio** webpage!
 
-I am Minkyung (Jane) Park, a undergradueate student studying below:  
- - Bachelor of Medical science majoring Genomics and medical informatics  
- - Bachelor of Science majoring Statistical modelling  
- 
- I am hoping to work at Drug development 
+My name is Minkyung (Jane) Park, and I am currently an undergraduate student pursuing a double degree:  
+- Bachelor of Medical Science, majoring in Genomics and Medical Informatics  
+- Bachelor of Science, majoring in Statistical Modelling  
+
+I am passionate about applying my knowledge and skills in drug development and aspire to contribute to advancements in pharmaceuticals and healthcare through research and innovation.  
+Jump to my [Skills](#skills) section.
+
+With a strong interest in clinical trials, statistical analysis, and drug development, I aim to build a career that bridges medical science and data-driven drug discovery.  
+Learn more in the [Interest](#interest) section.
+
+Through this portfolio, I hope to share my academic journey, skills, and projects that reflect my dedication to advancing healthcare solutions.  
+See details in my [Career History](#career-history).
+
 
 <br>
 ## Interest 
@@ -25,10 +33,25 @@ I am Minkyung (Jane) Park, a undergradueate student studying below:
 - Drug discovery
 - Analytical method development
 
-
+<br>
 ## Skills
-- 
+#### Laboratory
+- Cell-based assays (e.g., uptake assays)
+- Enzyme-based assays (e.g., ELISA, Western blotting, enzyme kinetics)
+- Genomics-related techniques (e.g., PCR, gel electrophoresis, DNA extraction)
+- Basic laboratory techniques (e.g., Bradford assay, pH measurement, endotoxin testing)
 
+#### Technical
+- R for data analysis and visualization
+
+#### Regulatory & Documentation
+- Familiarity with clinical and regulatory documentation guidelines (e.g., ICH, FDA, EMA)
+- Understanding of standard operating procedures (SOPs) and compliance requirements
+
+#### Communication & Collaboration
+- Experienced in scientific report writing and presentations  
+- Proven teamwork skills through group-based university projects and experience in a pharmaceutical company  
+- Bilingual: Fluent in Korean and English
 
 <br>
 ## Career History

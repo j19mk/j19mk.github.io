@@ -4,6 +4,7 @@ title: Sample post
 tags: [example]
 last_modified: "2025-05-30"
 excerpt_separator: <!--more-->
+published: false
 
 ---
 
