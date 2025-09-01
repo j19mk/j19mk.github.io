@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "<span style='color:black;'>Prediction of Breast Cancer</span>"
+title: "<span style='color:black;'>Association between Breast Cancer Diagnosis and Test Results</span>"
 feature-img: "assets/img/feature-img/Regression.png"
 tags: [R]
 last_modified: "2025-07-30"
