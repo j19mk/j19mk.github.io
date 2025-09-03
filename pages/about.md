@@ -123,7 +123,7 @@ See details in my [Career History](#career-history).
 - Biomolecular binding kinetic assay on the Octet Plaform and SPR
 
 
-#### 3) Analyzing samples to identify biological properties
+#### 2) Analyzing samples to identify biological properties
 
 <u>Required skills<u>
 - Following and conducting appropriate SOPs
