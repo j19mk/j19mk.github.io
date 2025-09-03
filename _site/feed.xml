@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-30T17:21:47+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jane</title><subtitle>Jane&apos;s portfolio</subtitle><entry><title type="html">Prediction of Breast Cancer</title><link href="http://localhost:4000/2025/07/30/Prediction-of-Breast-Cancer.html" rel="alternate" type="text/html" title="Prediction of Breast Cancer" /><published>2025-07-30T00:00:00+10:00</published><updated>2025-07-30T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/30/Prediction%20of%20Breast%20Cancer</id><content type="html" xml:base="http://localhost:4000/2025/07/30/Prediction-of-Breast-Cancer.html"><![CDATA[<p>Given that an average of 58 people are diagnosed with breast cancer every day in Australia, it is the most common cancer among women.<sup>[1]</sup></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-09-03T12:15:36+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jane</title><subtitle>Jane&apos;s portfolio</subtitle><entry><title type="html">Top 10 Target Pathways for Cancer drugs</title><link href="http://localhost:4000/2025/09/03/Top10-Target-Pathways-for-Cancer-drugs.html" rel="alternate" type="text/html" title="Top 10 Target Pathways for Cancer drugs" /><published>2025-09-03T00:00:00+10:00</published><updated>2025-09-03T00:00:00+10:00</updated><id>http://localhost:4000/2025/09/03/Top10%20Target%20Pathways%20for%20Cancer%20drugs</id><content type="html" xml:base="http://localhost:4000/2025/09/03/Top10-Target-Pathways-for-Cancer-drugs.html"><![CDATA[<p>Cancer is one of the leading causes of death worldwide, accounting for nearly 10 million deaths in 2020. The most common cancers are breast, lung, colorectal, and prostate cancers. <sup>[1]</sup></p>
+
+<!--more-->
+<p>A variety of cancer drugs have been developed to target diverse signaling pathways. This dataset includes information on different drugs, their molecular targets, and associated target pathways.</p>
+
+<p>Using this dataset, the top 10 target pathways for cancer drugs were first identified, and the drug names and screening sites for the top 3 target pathways were summarized.</p>
+
+<p><a href="https://www.kaggle.com/datasets/samiraalipour/genomics-of-drug-sensitivity-in-cancer-gdsc" target="_blank">Dataset Source</a></p>
+
+<h4 id="1-dataset-import-and-run-library">1. Dataset Import and run library</h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compound</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"Compounds-annotation.csv"</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span><span class="w">
+
+</span><span class="n">compound</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/compounds.png" alt="compounds.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 1. Compounds-annotation dataset</figcaption>
+</figure>
+
+<h4 id="2-reshaping-the-data">2. Reshaping the data</h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compound_long</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">compound</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">pivot_longer</span><span class="p">(</span><span class="w">
+    </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">SYNONYMS</span><span class="p">,</span><span class="w"> </span><span class="n">TARGET</span><span class="p">,</span><span class="w"> </span><span class="n">TARGET_PATHWAY</span><span class="p">),</span><span class="w">
+    </span><span class="n">names_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Variables"</span><span class="p">,</span><span class="w">
+    </span><span class="n">values_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Values"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">separate_rows</span><span class="p">(</span><span class="n">Values</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">","</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trimws</span><span class="p">(</span><span class="n">Values</span><span class="p">))</span><span class="w"> 
+  
+</span><span class="n">compound_long</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/longform.png" alt="longform.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 2. Long form of the datatset</figcaption>
+</figure>
+
+<h4 id="2-missing-data-check">2. Missing data check</h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">compound_na_rows</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">compound_long</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">  
+  </span><span class="n">filter</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">Values</span><span class="p">))</span><span class="w">
+</span><span class="n">compound_na_rows</span><span class="w">
+
+</span><span class="n">compound_no_na</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">compound_long</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">Values</span><span class="p">))</span><span class="w">
+</span><span class="n">compound_no_na</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/na.png" alt="na.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 3. Missing data</figcaption>
+</figure>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/wo_na.png" alt="wo_na.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 4. Dataset without missing data</figcaption>
+</figure>
+
+<h4 id="3-top-10-target-pathway">3. Top 10 Target Pathway</h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">top10_pathway</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">compound_no_na</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">Variables</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"TARGET_PATHWAY"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">Values</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarize</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="n">n</span><span class="p">(),</span><span class="w"> </span><span class="n">.groups</span><span class="o">=</span><span class="s2">"drop"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">slice_head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">10</span><span class="p">)</span><span class="w">
+
+
+</span><span class="c1"># top10_pathway &lt;- compound_no_na %&gt;%</span><span class="w">
+</span><span class="c1">#   filter(Variables == "TARGET_PATHWAY") %&gt;%</span><span class="w">
+</span><span class="c1">#   group_by(Values) %&gt;%</span><span class="w">
+</span><span class="c1">#   summarize(count=n(), .groups="drop") %&gt;%</span><span class="w">
+</span><span class="c1">#   slice_max(order_by = count, n = 10) # Different code but the same result</span><span class="w">
+
+</span><span class="n">top10_pathway</span><span class="w">
+
+</span></code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/top10.png" alt="top10.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 5. Top 10 Target Pathway</figcaption>
+</figure>
+
+<h4 id="4-visualization-data">4. Visualization data</h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">top10_pathway</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Values</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Values</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">geom_col</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="p">),</span><span class="w"> </span><span class="n">hjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"white"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">coord_flip</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Pathway"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Count"</span><span class="p">,</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Top 10 Target pathway"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/top10plot.png" alt="top10plot.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 6. Top10 Target Pathway</figcaption>
+</figure>
+
+<h4 id="5-top-3-target-pathways-screening-sites-and-drug-names">5. Top 3 Target Pathways: Screening Sites and Drug Names</h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Other</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">compound_long</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">Values</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">pivot_wider</span><span class="p">(</span><span class="w">
+    </span><span class="n">names_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">values_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Values</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">values_fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">paste</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">","</span><span class="p">))</span><span class="w"> 
+  </span><span class="p">)</span><span class="w">
+
+</span><span class="n">kinases</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">compound_long</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">Values</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"kinases"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">pivot_wider</span><span class="p">(</span><span class="w">
+    </span><span class="n">names_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">values_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Values</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">values_fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">paste</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">","</span><span class="p">))</span><span class="w"> 
+  </span><span class="p">)</span><span class="w">
+
+</span><span class="n">PI3K</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">compound_long</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">Values</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"PI3K/MTOR signaling"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">pivot_wider</span><span class="p">(</span><span class="w">
+    </span><span class="n">names_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Variables</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">values_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Values</span><span class="p">,</span><span class="w"> 
+    </span><span class="n">values_fn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">Values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">paste</span><span class="p">(</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">","</span><span class="p">))</span><span class="w"> 
+  </span><span class="p">)</span><span class="w">
+  
+</span><span class="n">Other</span><span class="w">
+</span><span class="n">kinases</span><span class="w">
+</span><span class="n">PI3K</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/other.png" alt="other.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 7. Screening site and drug name of Other target pathway </figcaption>
+</figure>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/kinases.png" alt="kinases.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 8. Screening site and drug name of Kinases target pathway </figcaption>
+</figure>
+
+<figure class="row">
+    
+    <div class="column">
+        <img class="single" src="/assets/img/pexels/compound/PI3K.png" alt="PI3K.png" />
+    </div>
+    
+    
+    <figcaption class="caption-style">Figure 9. Screening site and drug name of PI3K/MTOR signaling target pathway </figcaption>
+</figure>
+
+<h4 id="reference">Reference</h4>
+<p>[1] <a href="https://www.who.int/news-room/fact-sheets/detail/cancer" target="_blank">World Health Organization</a></p>]]></content><author><name></name></author><category term="R" /><summary type="html"><![CDATA[Cancer is one of the leading causes of death worldwide, accounting for nearly 10 million deaths in 2020. The most common cancers are breast, lung, colorectal, and prostate cancers. [1]]]></summary></entry><entry><title type="html">Association between Breast Cancer Diagnosis and Test Results</title><link href="http://localhost:4000/2025/07/30/Association-between-Breast-Cancer-Diagnosis-and-Test-Results.html" rel="alternate" type="text/html" title="Association between Breast Cancer Diagnosis and Test Results" /><published>2025-07-30T00:00:00+10:00</published><updated>2025-07-30T00:00:00+10:00</updated><id>http://localhost:4000/2025/07/30/Association%20between%20Breast%20Cancer%20Diagnosis%20and%20Test%20Results</id><content type="html" xml:base="http://localhost:4000/2025/07/30/Association-between-Breast-Cancer-Diagnosis-and-Test-Results.html"><![CDATA[<p>Given that an average of 58 people are diagnosed with breast cancer every day in Australia, it is the most common cancer among women.<sup>[1]</sup></p>
 
 <!--more-->
 <p>There are many tests used to diagnose breast cancer, such as imaging tests and biopsies.
